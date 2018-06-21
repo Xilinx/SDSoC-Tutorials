@@ -41,5 +41,6 @@ This tutorial requires that you have the SDx Integrated Design Environment insta
  - <a href="lab-8-emulation.md">Lab 8: Emulation</a>
  - <a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a>
 
+
 <hr/>
 <p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
