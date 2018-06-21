@@ -7,8 +7,8 @@
   </tr>
   <tr>
     <td width="17%" align="center">Introduction</a></td>
-    <td width="16%" align="center"><a href="">SDSoC Environment Getting Started Tutorial</a></td>
-    <td width="17%" align="center"><a href="">SDSoC Environment Platform Creation Tutorial</a></td>
+    <!--<td width="16%" align="center"><a href="">SDSoC Environment Getting Started Tutorial</a></td>-->
+    <td width="17%" align="center"><a href="./platform-creation-tutorial/README.md">SDSoC Environment Platform Creation Tutorial</a></td>
   </tr>
 </table>
 
@@ -19,3 +19,6 @@ The SDSoC™ (Software-Defined System-On-Chip) environment is an Eclipse-based I
 The SDSoC environment abstracts hardware through increasing layers of software abstraction that includes cross-compilation and linking of C/C++/OpenCL functions into programmable logic fabric as well as the Arm CPUs within a Zynq device. Based on a user specification of program functions to run in programmable hardware, the SDSoC environment performs program analysis, task scheduling and binding onto programmable logic and embedded CPUs, as well as hardware and software code generation that automatically orchestrates communication and cooperation among hardware and software components.  
 
 The SDSoC environment 2018.2 release includes support for the ZC702, ZC706, and Zed development boards featuring the Zynq-7000 SoC, and for the ZCU102 development board featuring the Zynq UltraScale+ MPSoC. Additional platforms are available from partners. For more information, visit the [SDSoC development environment web page](https://www.xilinx.com/products/design-tools/software-zone/sdsoc.md).  
+
+## Related information
+<a href="./platform-creation-tutorial/README.md">SDSoC Environment Platform Creation Tutorial</a>
