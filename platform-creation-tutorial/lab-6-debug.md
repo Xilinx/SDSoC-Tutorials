@@ -1,6 +1,6 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -15,7 +15,7 @@
     <td align="center">Lab 6: Debug</td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
 
@@ -80,7 +80,7 @@ Ensure that you allow Windows to install the `USB-UART` driver and the `Digilent
   1. In the Project Explorer view click on the top level project (`lab6`) in the Debug folder in the lab6 project and in the toolbar click on the Debug icon or use the Debug icon pull-down menu to select **Debug As > Launch on Hardware (SDx Application Debugger)**. Alternatively, right-click the project and select **Debug As > Launch on Hardware (SDx Application Debugger)**.
      The Confirm Perspective Switch dialog box appears.  
 
-    >**:information_source: IMPORTANT!** Ensure that the board is switched on before debugging the project.  
+   >**:information_source: IMPORTANT!** Ensure that the board is switched on before debugging the project.  
 
   2. Click Yes to switch to the debug perspective.  
      You are now in the Debug Perspective of the SDx IDE. Note that the debugger resets the system, programs and initializes the device, then breaks at the `main` function. The source code is shown in the center panel, local variables in the top right corner panel and the SDx log at the bottom right panel shows the Debug configuration log.  
