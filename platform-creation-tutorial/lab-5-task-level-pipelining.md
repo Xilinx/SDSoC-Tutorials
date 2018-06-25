@@ -1,6 +1,6 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -15,7 +15,7 @@
     <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
 ## Lab 5: Task-Level Pipelining  
