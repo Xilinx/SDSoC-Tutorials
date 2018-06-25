@@ -1,7 +1,7 @@
 
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -16,7 +16,7 @@
     <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
     </tr>
 </table>
 
@@ -28,7 +28,7 @@ This tutorial shows how to create an SDSoC&trade; platform that can be used to a
 
 ## Hardware and Software Requirements
 
-This tutorial requires that you have the SDx Integrated Design Environment installed. See the SDx Environments Release Notes, Installation, and Licensing Guide ([UG1238](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.2;d=ug1238 -sdx-rnil.pdf)) for instructions. The SDx tool installs the SDx IDE as well as the required Vivado Design Suite and Software Development Kit (SDK) software.
+This tutorial requires that you have the SDx Integrated Design Environment v2018.2 installed. See the SDx Environments Release Notes, Installation, and Licensing Guide ([UG1238](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.2;d=ug1238-sdx-rnil.pdf)) for instructions. The SDx tool installs the SDx IDE as well as the required Vivado Design Suite and Software Development Kit (SDK) software.
 
 ## Related information
  - <a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a>
@@ -39,7 +39,7 @@ This tutorial requires that you have the SDx Integrated Design Environment insta
  - <a href="lab-6-debug.md">Lab 6: Debug</a>
  - <a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a>
  - <a href="lab-8-emulation.md">Lab 8: Emulation</a>
- - <a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a>
+ - <a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a>
 
 
 <hr/>
