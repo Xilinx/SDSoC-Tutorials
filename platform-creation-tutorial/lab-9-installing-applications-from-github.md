@@ -1,7 +1,7 @@
 
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -19,7 +19,7 @@
     <td align="center">Lab 9: Installing Applications from GitHub</td>
 </table>
 
-## Lab 9: Installing Applications from Github  
+## Lab 9: Installing Examples from Github  
 
 This tutorial demonstrates how to install examples that are available on Xilinx Github for the SDx environment.  
 
@@ -30,11 +30,11 @@ First, you install the provided example on Github using the SDx IDE. After the a
 <details>
 <summary><strong>Step 1: Downloading and Installing an Example from the Github</strong></summary>  
 
-  1. To download and install an example from the SDx Example store, click Xilinx > SDx Examples.  
+  1. To download and install an example from the SDx Example store, click **Xilinx > SDx Examples**.  
 
      ![](./images/gvu1517375349413.png)  
 
-  2. The SDx Examples dialog box opens up. Click the Download button as shown below.  
+  2. The SDx Examples dialog box opens up. Click the **Download** button as shown below.  
 
      ![](./images/wkd1517375349420.png)  
 
@@ -57,10 +57,10 @@ First, you install the provided example on Github using the SDx IDE. After the a
   3. Specify the name of the project (for example, lab9) in the Project name field. Click New.  
   4. From the Platform list select zc702. Click **Next**.  
   5. From the System Configuration drop-down list, select Linux. Click **Next**.  
-  6. From the list of application templates, select Array Partitioning and click Finish.  
-  7. Click on the tab labeled lab9 to select the SDx Project Settings (if the tab is not visible, double click the project.sdx file in the Project Explorer). In the HW functions panel observe that the matmul_partition_accel function is marked as a hardware function when the project was created.  
-  8. If the hardware functions were removed or not marked, click on the Add HW Functions icon to invoke the dialog box to specify hardware functions.  
-  9. Click the Build icon on the toolbar to build the project.      
+  6. From the list of application templates, select Array Partitioning and click **Finish**.  
+  7. Click on the tab labeled lab9 to select the SDx Project Settings (if the tab is not visible, double click the `project.sdx` file in the Project Explorer). In the HW functions panel observe that the matmul_partition_accel function is marked as a hardware function when the project was created.  
+  8. If the hardware functions were removed or not marked, click on the **Add HW Functions** icon to invoke the dialog box to specify hardware functions.  
+  9. Click the **Build** icon on the toolbar to build the project.      
 
 </details>
 
