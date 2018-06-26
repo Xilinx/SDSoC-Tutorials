@@ -1,6 +1,6 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -15,7 +15,7 @@
     <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
 
@@ -185,7 +185,7 @@ The sys_port pragma allows you to override the SDSoC system compiler port select
   array. However, the hardware functions and DMAs can only access the physical address space, and so the software drivers have to explicitly translate from the Virtual Address to the Physical Address for each array, and provide this physical address to the DMA or hardware function. As each array may be spread across multiple non-contiguous pages in Physical Address Space, the driver has to provide a list of physical page addresses to the DMA. DMA that can handle a list of pages for a single array is known as Scatter-Gather DMA. A DMA that can handle only single physical addresses is called Simple DMA. Simple DMA is cheaper than Scatter-Gather DMA in terms of the area and performance  
   overheads, but it requires the use of a special allocator called `sds_alloc()` to obtain physically contiguous memory for each array.  
 
-  [Lab1](hii1517356364731.md) used the `mult_add` template to allow the use of Simple DMA. In the following exercises you force the use of other data movers such as Scatter-Gather DMA or AXIFIFO using pragmas, modify the source code to use `malloc()` instead of `sds_alloc()` and observe how Scatter-Gather DMA is automatically selected.  
+  [Lab 1](lab-1-introduction-to-the-sdsoc-development-environment.md) used the `mult_add` template to allow the use of Simple DMA. In the following exercises you force the use of other data movers such as Scatter-Gather DMA or AXIFIFO using pragmas, modify the source code to use `malloc()` instead of `sds_alloc()` and observe how Scatter-Gather DMA is automatically selected.  
 
 
   <details>
