@@ -117,7 +117,7 @@ When the SDSoC environment creates the project from a template, it specifies the
   </details>
 
   <details>
-  <summary><strong>Step 4: Running the Project<strong></summary>
+  <summary><strong>Step 4: Running the Project</strong></summary>
 
   To run your project on a ZC702 board:  
 
