@@ -1,6 +1,6 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -15,7 +15,7 @@
     <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
 ## Lab 1: Introduction to the SDSoC Development Environment  
@@ -30,7 +30,7 @@ This lab demonstrates how you can use the SDSoC environment to create a new proj
 
   1. Launch the SDx IDE 2018.2 using the desktop icon or the Start menu.
 
-  2. When you launch the SDx IDE, the Workspace Launcher dialog appears. Click Browse to enter a workspace folder used to store your projects (you can use workspace folders to organize your work), then click OK to dismiss the Workspace Launcher dialog.  
+  2. When you launch the SDx IDE, the Workspace Launcher dialog appears. Click **Browse** to enter a workspace folder used to store your projects (you can use workspace folders to organize your work), then click OK to dismiss the Workspace Launcher dialog.  
 
   3. The SDx IDE window opens with the Welcome tab visible when you create a new workspace. The tab includes links for Create SDx Project, Add Custom Platform, Import Project, Tutorials, and Web Resources. Clicking any of these links takes you to further options available under each link. For example, to access documentation and tutorials, clicking on Tutorials takes you to the Tutorials page which has links for SDSoC and SDAccel related documents. The Welcome tab can be dismissed by clicking the X icon or minimized if you do not wish to use it.  
 
@@ -40,27 +40,26 @@ This lab demonstrates how you can use the SDSoC environment to create a new proj
 
   5. Application Project is selected by default. Click **Next**.  
 
-  6. In the Create a New SDx Project page, specify the name of the project, lab1.  
+  6. In the Create a New SDx Project page, specify the name of the project, `lab1`.  
 
-  7. Click Next.  
+  7. Click **Next**.  
 
   8. From the Platform page, select the zc702 platform.  
 
      ![](./images/vyn1526588378013.png)  
 
-     >**:pushpin: NOTE:**  If a custom platform is being used that is not in the list of supported  
-platforms, click Add Custom Platform to add the custom platform.  
+     >**:pushpin: NOTE:**  If a custom platform is being used that is not in the list of supported platforms, click **Add Custom Platform** to add the custom platform.  
 
-  9. Click Next.  
+  9. Click **Next**.  
 
-  10. From the System configuration drop-down list for the selected platform, select Linux. Leave all other fields at their default values.  
+  10. From the System configuration drop-down list for the selected platform, select **Linux**. Leave all other fields at their default values.  
 
       ![](./images/uyi1526588566181.png)  
 
-  11. Click Next.  
+  11. Click **Next**.  
       The Templates page appears, containing source code examples for the selected platform.  
 
-  12. From the list of application templates, select Matrix Multiplication and Addition and click Finish.  
+  12. From the list of application templates, select **Matrix Multiplication and Addition** and click **Finish**.  
 
       ![](./images/vfp1517375349361.png)  
 
@@ -73,7 +72,7 @@ platforms, click Add Custom Platform to add the custom platform.
       ![](./images/nol1526589252028.png)  
       The SDx Project Settings window provides a summary of the project settings.  
 
-      When you build an SDx application, you use a build configuration (a collection of tool settings, folders and files). Each build configuration has a different purpose. Debug builds the application with extra information in the ELF (compiled and linked program) that you need to run the debugger. The debug information in an ELF increases the size of the file and makes your application information visible. The Release configuration provides the same ELF file as the Debug configuration with the exception that it has no debug information. The Estimate Performance option can be selected in any build configuration and is used to run the SDSoC environment in a mode used to estimate the performance of the application (how fast it runs), which requires different settings and steps (see [Performance Estimation](kke1517356364663.md)).
+      When you build an SDx application, you use a build configuration (a collection of tool settings, folders and files). Each build configuration has a different purpose. Debug builds the application with extra information in the ELF (compiled and linked program) that you need to run the debugger. The debug information in an ELF increases the size of the file and makes your application information visible. The Release configuration provides the same ELF file as the Debug configuration with the exception that it has no debug information. The Estimate Performance option can be selected in any build configuration and is used to run the SDSoC environment in a mode used to estimate the performance of the application (how fast it runs), which requires different settings and steps (see [Lab 2: Performance Estimation](lab-2-performance-estimation.md)).
 
 </details>
 
@@ -110,7 +109,7 @@ When the SDSoC environment creates the project from a template, it specifies the
      The SDSoC system compiler standard output (stdout) is directed to the Console tab. The functions selected for hardware are compiled using Vivado® HLS into IP blocks and integrated into a generated Vivado tools hardware system based on the selected base platform. The system compiler then invokes Vivado synthesis, place and route tools to build a bitstream, and invokes the ARM GNU compiler and linker to generate an application ELF executable file.   
 
   2. In the Assistant window, below the Project Explorer tab, double-click to open the Data Motion Network Report.  
-     This report shows the connections created by the SDx system compiler and the types of data transfers for each function implemented in hardware. For details, see [Lab 3: Optimize the Application Code](ite1517356691944.md).  
+     This report shows the connections created by the SDx system compiler and the types of data transfers for each function implemented in hardware. For details, see [Lab 3: Optimize the Application Code](lab-3-optimize-the-application-code.md).  
      ![](./images/fiv1526666379843.png)  
 
   3. Open the `lab1/Release/_sds/swstubs/mmult.cpp` file, to see how the SDx system compiler replaced the original `mmult` function with one named `_p0_mmult_1_noasync` that performs transfers to and from the FPGA using `cf_send_i` and `cf_wait` functions. The SDx system compiler also replaces calls to `mmult` with `_p0_mmult_1_noasync` in `lab1/Release/_sds/swstubs/main.cpp`. The SDx system compiler uses these rewritten source files to build the ELF that accesses the hardware functions.   
