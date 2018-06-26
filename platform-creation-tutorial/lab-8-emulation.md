@@ -1,6 +1,6 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Platform Creation Tutorial</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
@@ -15,7 +15,7 @@
     <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
     <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
     <td align="center">Lab 8: Emulation</td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Applications from GitHub</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
 ## Lab 8: Emulation  
@@ -29,16 +29,16 @@ First, you target your design to the desired OS and platform and run emulation o
 <details>
 <summary><strong>Step 1: Creating a Project to Run Emulation</strong></summary>  
 
-Create a new SDx project (lab8) for the ZC702 platform and Linux OS using the design template for Emulation Example. To create the project in the SDx IDE:  
+Create a new SDx project (`lab8`) for the ZC702 platform and Linux OS using the design template for Emulation Example. To create the project in the SDx IDE:  
 
   1. Launch the SDx IDE.  
-  2. Select File > New > SDx Project.  
+  2. Select **File > New > SDx Project**.  
   3. In the Project Type page, **Application Project** is selected by default. Click **Next**.  
-  4. Specify the name of the project (for example, lab8) in the Project name field. Click Next.  
-  5. From the Platform list select zc702. Click Next.  
-  6. From the System Configuration drop-down list, select Linux. Click Next.  
-  7. From the list of application templates, select Emulation Example and click Finish.  
-  8. Click on the tab labeled lab8 to select the SDx Project Settings (if the tab is not visible, double click the project.sdx file in the Project Explorer). In the HW functions panel observe that the mmult_accel function is marked as a hardware function when the project was created.  
+  4. Specify the name of the project (for example, `lab8`) in the Project name field. Click **Next**.  
+  5. From the Platform list select zc702. Click **Next**.  
+  6. From the System Configuration drop-down list, select **Linux**. Click **Next**.  
+  7. From the list of application templates, select **Emulation Example** and click **Finish**.  
+  8. Click on the tab labeled **lab8** to select the SDx Project Settings (if the tab is not visible, double click the `project.sdx` file in the Project Explorer). In the HW functions panel observe that the mmult_accel function is marked as a hardware function when the project was created.  
   9. If the hardware functions were removed or not marked, you would click on the Add HW Functions icon to invoke the dialog box to specify hardware functions.  
   10. In the SDx Project Settings, from the pull-down menu for the **Active build configuration**, select **Debug**, from the pull-down menu for **Target**, select **Emulation**. For the Emulation model there are two options: Debug and Optimized. Select the Debug option to enable capture of debug information. For faster emulation without debug information, select the Optimized pull-down menu option. For this lab, use the default option of Debug.  
   11. When you select the **Target** as **Emulation**, the **Generate SD card png** is greyed out.  
@@ -52,25 +52,25 @@ Create a new SDx project (lab8) for the ZC702 platform and Linux OS using the de
 <details>
 <summary><strong>Step 2: Starting the Emulator</strong></summary>
 
-  1. From the menu select Xilinx > Start/Stop Emulator.  
+  1. From the menu select **Xilinx > Start/Stop Emulator**.  
   2. The Emulation dialog box appears. Select the appropriate Project and Configuration.  
 
      ![](./images/hra1517374817424.png)  
 
-  3. Select whether or not you want to show the waveform. Showing the waveform initiates a Vivado tools session with the simulation window open where you can view the waveform of the different signals within your design. Not showing the waveform results in faster emulation. Check the Show the Waveform option.  
-  4. Click Start. This is equivalent to turning a board on.  
+  3. Select whether or not you want to show the waveform. Showing the waveform initiates a Vivado tools session with the simulation window open where you can view the waveform of the different signals within your design. Not showing the waveform results in faster emulation. Check the **Show the Waveform** option.  
+  4. Click **Start**. This is equivalent to turning a board on.  
   5. Add the signals that need to be viewed in the Waveform viewer. This can be done by selecting the appropriate functions in the **Scope** window in Vivado, right-clicking and selecting **Add to Wave Window**. The signals within that function are then added to the waveform viewer.  
 
      ![](./images/wnf1527886268336.png)  
 
-  6. Click on the Run All or Run for buttom to start the programmable logic simulation after selecting your signals.  
+  6. Click on the **Run All** or **Run for** button to start the programmable logic simulation after selecting your signals.  
 
 </details>
 
 <details>
 <summary><strong>Step 3: Running the Application</strong></summary>
 
-The emulator will take a few seconds to start. To kick off emulation:  
+The emulator will take a few seconds to start. To begin emulation:  
 
   1. In the SDx IDE, right-click on `lab8` and from the context menu that appears, select **Debug As > Launch on Emulator (SDx Application Debugger)**.  
 
