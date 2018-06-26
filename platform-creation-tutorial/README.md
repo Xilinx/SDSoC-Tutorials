@@ -13,6 +13,8 @@
 For notifications on this repository:
 1. On GitHub, navigate to the main page of the repository.
 2. In the upper-right corner, in the **Watch** list, select **Watching**.
+
    ![](https://help.github.com/assets/images/help/notifications/watcher_picker.gif)
+
 <hr/>
 <p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
