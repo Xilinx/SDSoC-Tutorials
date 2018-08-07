@@ -26,9 +26,9 @@
 At the shell prompt, type the following commands:
    
    1. `source <Xilinx_Install_Directory>/SDx/<Version>/settings64.{sh,csh}`
-   2. `vivado`
+   2. `sdx`
     
-The first command sets the environment variables prior to launching Vivado and the second command launches the Vivado IDE. 
+The first command sets the environment variables prior to launching the SDx IDE and the second command launches the SDx IDE. 
 
 #### On a Windows host machine:
 
@@ -41,9 +41,9 @@ For a Windows host machine, use one of the following methods to launch Vivado
    - From a Command prompt window, type the following commands:
    
       1. `<Xilinx_Install_Directory>/SDx/<Version>/settings64.bat`
-      2. `vivado`
+      2. `sdx`
     
-     The first command sets the environment variables prior to launching Vivado and the second command launches the Vivado IDE. 
+     The first command sets the environment variables prior to launching the SDx IDE and the second command launches the SDx IDE. 
    
    SDx IDE prompts you to set a directory location for an SDx workspace. The SDx workspace contains the platform and application projects developed by you.
    
