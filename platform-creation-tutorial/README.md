@@ -86,7 +86,7 @@ The following is a list of minimum software and hardware requirements for this t
 </details>
 
 ## Related information
- - <a href="Lab1-Creating-DSA-for-Zynq-7000-SoC-Processor-Design.md">Lab 1: Creating DSA for a Zynq-7000 SoC Processor Design</a>
+ - <a href="Lab1-Creating-DSA-for-Zynq-7000-SoC-Processor-Design.md">Lab 1: Creating the DSA for a Zynq-7000 SoC Processor Design</a>
  - <a href="Lab2-Creating-Software-Components.md">Lab 2: Creating Software Components for the Platform</a>
  - <a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Creating a Custom Platform Using the SDx IDE</a>
 
