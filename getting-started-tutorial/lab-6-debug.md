@@ -130,14 +130,14 @@ Ensure that you allow Windows to install the `USB-UART` driver and the `Digilent
   2. Observe that the functions mmult and madd are marked for hardware implementation in the HW functions table of the SDx Project Settings.  
      For details, see [Marking Functions for Hardware Implementation](mey1517355484594.md).  
 
-  3. Build a project and generate executable, bitstream, and SD card boot png. For the Active build configuration, use Debug.  
+  3. Build a project and generate executable, bitstream, and SD card boot image. For the Active build configuration, use Debug.  
      For details, see [Building a Design with Hardware Accelerators](rof1517355816863.md).  
 
   4. Here we are using the SDSoC environment Terminal view invoked from Window > Show View > Other and selecting Terminal > Terminal. Click the Terminal tab near the bottom of the Debug window and confirm the settings (Connection Type: Serial, Port: COM<n>, Baud Rate: 115200 baud).  
      For the COM port settings to be visible,the board must be powered up:  
 
       * Power up the board without an SD card plugged in.  
-      * Click on the Terminal Settings icon ![](./images/srz1517375659047.png), set the configuration and click OK.  
+      * Click on the Terminal Settings icon ![](./images/srz1517375659047.png), set the configuration and click **OK**.  
       * The terminal indicates it is connected. Click the red disconnect icon ![](./images/mge1517375659058.png) to disconnect the terminal from the board, and power off the board.  
 
   5. Copy the contents of the generated `sd_card` directory to an SD card, and plug the SD card into the ZC702 board.  
