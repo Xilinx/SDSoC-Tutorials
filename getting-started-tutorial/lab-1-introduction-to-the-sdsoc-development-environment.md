@@ -102,7 +102,7 @@ When the SDSoC environment creates the project from a template, it specifies the
 
 <summary><strong>Step 3: Building a Design with Hardware Accelerators</strong></summary>  
 
-  To build a project and generate an executable, bitstream, and SD Card boot png:  
+  To build a project and generate an executable, bitstream, and SD Card boot image:  
 
   1. Right-click **lab1** in the Project Explorer and select Build Project from the context menu that appears.   
 
