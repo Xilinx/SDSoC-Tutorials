@@ -38,9 +38,9 @@ In this lab we will create the files used to define the software components of a
 At the shell prompt, type the following commands:
    
    1. `source <Xilinx_Install_Directory>/SDx/<Version>/settings64.{sh,csh}`
-   2. `vivado`
+   2. `sdx`
     
-The first command sets the environment variables prior to launching Vivado and the second command launches the Vivado IDE. 
+The first command sets the environment variables prior to launching the SDx IDE and the second command launches the SDX IDE. 
 
 #### On a Windows host machine:
 
@@ -53,11 +53,11 @@ For a Windows host machine, use one of the following methods to launch Vivado
    - From a Command prompt window, type the following commands:
    
       1. `<Xilinx_Install_Directory>/SDx/<Version>/settings64.bat`
-      2. `vivado`
+      2. `sdx`
     
-     The first command sets the environment variables prior to launching Vivado and the second command launches the Vivado IDE. 
+     The first command sets the environment variables prior to launching the SDx IDE and the second command launches the SDX IDE. 
 
-   After the SDx IDE opens it will prompt you to set a directory location for an SDx workspace. The SDx workspace will contain the platform and application projects we will develop.
+After the SDx IDE opens it will prompt you to set a directory location for an SDx workspace. The SDx workspace will contain the platform and application projects we will develop.
 
 1. For this lab enter **/tmp/sdx\_workspace** for the Workspace as shown in the figure below.
 
