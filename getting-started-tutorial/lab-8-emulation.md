@@ -41,7 +41,7 @@ Create a new SDx project (`lab8`) for the ZC702 platform and Linux OS using the 
   8. Click on the tab labeled **lab8** to select the SDx Project Settings (if the tab is not visible, double click the `project.sdx` file in the Project Explorer). In the HW functions panel observe that the mmult_accel function is marked as a hardware function when the project was created.  
   9. If the hardware functions were removed or not marked, you would click on the Add HW Functions icon to invoke the dialog box to specify hardware functions.  
   10. In the SDx Project Settings, from the pull-down menu for the **Active build configuration**, select **Debug**, from the pull-down menu for **Target**, select **Emulation**. For the Emulation model there are two options: Debug and Optimized. Select the Debug option to enable capture of debug information. For faster emulation without debug information, select the Optimized pull-down menu option. For this lab, use the default option of Debug.  
-  11. When you select the **Target** as **Emulation**, the **Generate SD card png** is greyed out.  
+  11. When you select the **Target** as **Emulation**, the **Generate SD card image** is greyed out.  
 
       ![](./images/fpd1527885363339.png)  
 
