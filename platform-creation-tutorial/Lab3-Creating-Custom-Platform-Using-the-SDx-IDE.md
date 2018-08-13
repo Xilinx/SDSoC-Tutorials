@@ -17,7 +17,7 @@
 </div>
 
 
-## Lab 3: Creating a Custom Platform Using the SDx IDE
+## Lab 3: Creating a Custom Platform Using the SDx&trade; IDE
 
 <details><summary><big><strong>Step 1: Invoking the SDx IDE and Creating a Platform Project</strong></big></summary>
 
@@ -28,15 +28,15 @@ At the shell prompt, type the following commands:
    1. `source <Xilinx_Install_Directory>/SDx/<Version>/settings64.{sh,csh}`
    2. `sdx`
     
-The first command sets the environment variables prior to launching the SDx IDE and the second command launches the SDx IDE. 
+The first command sets the environment variables before launching the SDx IDE and the second command launches the SDx IDE. 
 
 #### On a Windows host machine:
 
-For a Windows host machine, use one of the following methods to launch Vivado
+For a Windows host machine, use one of the following methods to launch Vivado&reg;
 
-   - Click the Vivado desktop icon
+   - Click the Vivado desktop icon.
 
-   - From the Start menu, select Xilinx Design Tools \> Vivado 2018.2 \> Vivado 2018.2
+   - From the Start menu, select Xilinx Design Tools \> Vivado 2018.2 \> Vivado 2018.2.
 
    - From a Command prompt window, type the following commands:
    
@@ -47,7 +47,7 @@ For a Windows host machine, use one of the following methods to launch Vivado
    
    SDx IDE prompts you to set a directory location for an SDx workspace. The SDx workspace contains the platform and application projects developed by you.
    
-1.  For this lab enter `/tmp/sdx\_workspace` for the Workspace as shown in the following figure.
+1.  For this lab enter `/tmp/sdx_workspace` for the Workspace as shown in the following figure.
 
     ![](./images/image46.png)
     
@@ -62,10 +62,11 @@ For a Windows host machine, use one of the following methods to launch Vivado
 
 1.  Select **Platform** on the Project Type dialog.
 
-    We will create an SDSoC platform and populate it with the hardware and software components we created in the earlier labs.
+   ![](./images/image70.png)
+
+    We will create an SDSoC&trade; platform and populate it with the hardware and software components we created in the earlier labs.
 
 2. Click **Next**.
-   ![](./images/image70.png)
 
 3.  On the Platform Specification dialog.
 
@@ -80,7 +81,7 @@ For a Windows host machine, use one of the following methods to launch Vivado
 
 <details><summary><big><strong>Step 2: Defining System Configuration</strong></big></summary>
 
-The zynq7\_board project is created and can be accessed through the Project Explorer or Assistant windows. The Editor Area window shows the four (4) steps that we will use to generate the zynq7\_board platform.
+The zynq7\_board project is created and can be accessed through the Project Explorer or Assistant windows. The Editor Area window shows the four steps that we will use to generate the zynq7\_board platform.
 
 ![](./images/image72.png)
 
@@ -130,7 +131,7 @@ The zynq7\_board project is created and can be accessed through the Project Expl
 <summary><big><strong>Step 4: Generating Platform</strong></big></summary>
 
 1.  Click **(3) Generate Platform**.
-
+    The following message is displayed.
     ![](./images/image77.png)
 
 2.  Click **OK**.
@@ -161,15 +162,15 @@ The zynq7\_board project is created and can be accessed through the Project Expl
 
     You will now create an SDx application for the custom SDSoC platform we generated.
 
-1.  Click **Next**.
-
     ![](./images/image81.png)
+
+1.  Click **Next**.
 
 1.  In the Create a New SDx Project dialog, type **sdx\_app1** as the Project name.
 
 1.  Click **Next**.
 
-  ![](./images/image82.png)
+    ![](./images/image82.png)
 
 1.  In the Platform dialog, select **Platform**.
 
@@ -222,11 +223,13 @@ The zynq7\_board project is created and can be accessed through the Project Expl
 
     ![](./images/image91.png)
 
-1. In the Assistant view, expand **sdx_app1 [SDSoC]**, right-click on **Debug [Hardware]** and select **Build**.
+1. In the Assistant view, expand **sdx_app1 [SDSoC]**.
+
+1. Right-click **Debug [Hardware]** and select **Build**.
 
    ![](./images/image92.png)
 
-1. Assistant view provides build results through links to the:
+1. Assistant view provides build results through links to the following:
 
    - Compilation log
 
