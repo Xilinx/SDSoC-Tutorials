@@ -17,9 +17,9 @@
 </div>
 
 
-## Lab 3: Creating a Custom Platform Using the SDx&trade; IDE
+## Lab 3: Creating a Custom Platform Using the SDx IDE
 
-<details><summary><big><strong>Step 1: Invoking the SDx IDE and Creating a Platform Project</strong></big></summary>
+<details><summary><big><strong>Step 1: Invoking the SDx&trade; IDE and Creating a Platform Project</strong></big></summary>
 
 #### On a Linux host machine:
 
