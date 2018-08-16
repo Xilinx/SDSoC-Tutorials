@@ -1,179 +1,179 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC 環境チュートリアル: 概要</h1>
 </th>
   </tr>
   <tr>
-    <td align="center"><a href="README.md">Introduction</a></td>
-    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
-    <td align="center"><a href="lab-2-performance-estimation.md">Lab 2: Performance Estimation</a></td>
-    <td align="center"><a href="lab-3-optimize-the-application-code.md">Lab 3: Optimize the Application Code</a></td>
-    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">Lab 4: Optimize the Accelerator Using Directives</a></td>
+    <td align="center"><a href="README.md">概要</a></td>
+    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">演習 1: SDSoC 開発環境の概要</a></td>
+    <td align="center"><a href="lab-2-performance-estimation.md">演習 2: パフォーマンスの見積もり</a></td>
+    <td align="center"><a href="lab-3-optimize-the-application-code.md">演習 3: アプリケーション コードの最適化</a></td>
+    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">演習 4: 指示子を使用したアクセラレータの最適化</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="lab-5-task-level-pipelining.md">Lab 5: Task-Level Pipelining</a></td>
-    <td align="center">Lab 6: Debug</td>
-    <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
-    <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
+    <td align="center"><a href="lab-5-task-level-pipelining.md">演習 5: タスク レベルのパイプライン</a></td>
+    <td align="center">演習 6: デバッグ</td>
+    <td align="center"><a href="lab-7-hardware-debug.md">演習 7: ハードウェア デバッグ</a></td>
+    <td align="center"><a href="lab-8-emulation.md">演習 8: エミュレーション</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">演習 9: GitHub からのサンプルのインストール</a></td>
 </table>
 
 
-## Lab 6: Debug  
+## 演習 6: デバッグ  
 
-This tutorial demonstrates how to use the interactive debugger in the SDx IDE.  
+このチュートリアルでは、SDx IDE でインタラクティブ デバッガーを使用する方法を示します。  
 
-First, you target your design to a standalone operating system or platform, then, run your standalone application using the SDx IDE, and finally, debug the application.  
+まず、デザインのターゲットをスタンドアロン オペレーティング システムまたはプラットフォームに設定し、SDx IDE を使用してスタンドアロン アプリケーションを実行して、アプリケーションをデバッグします。  
 
-In this tutorial you are debugging applications running on an accelerated system.  
+このチュートリアルでは、アクセラレーションされたシステムで実行しているアプリケーションをデバッグします。  
 
->**:pushpin: NOTE**  You can complete this tutorial even if you do not have a ZC702 board. When creating the SDx project, select your board and one of the available applications if the suggested template **Matrix Multiplication and Addition** is not found. For example, boards such as the MicroZed with smaller Zynq-7000 devices offer the **Matrix Multiplication and Addition (area reduced)** application as an available template. Any application can be used to learn the objectives of this tutorial.  
+>**:pushpin: 注記:**  このチュートリアルは、ZC702 ボードがなくても終了できます。SDx プロジェクトを作成する際に、推奨されている [Matrix Multiplication and Addition] テンプレートが見つからない場合は、ボードと使用可能なアプリケーションの 1 つを選択してください。たとえば、より小型の Zynq-7000 デバイスを含む MicroZed ボードなどのボードの場合、使用可能なテンプレートに [Matrix Multiplication and Addition (area reduced)] アプリケーションがリストされます。このチュートリアルの学習目標は、どのアプリケーションでも達成できるようになっています。  
 
 
 <details>
-<summary><strong>Step 1: Setting Up the Board</strong></summary>
+<summary><strong>手順 1: ボードの設定</strong></summary>
 
-You need a mini USB cable to connect to the UART port on the board, which talks to a serial terminal in the SDx IDE. This link is needed to see output (including informative messages) from the application software. You also need a micro USB cable to connect to the Digilent port on the board to allow downloading the bitstream and binaries. This is connection is needed to program the FPGA when the application is launched on the target board. You will also need an Ethernet cable. The Linux TCF agent needs an Ethernet link for communicating with the target board. Finally, you need to ensure that the jumpers to the side of the SD card slot are set correctly to allow booting from an SD card.  
+ボードの UART ポートに接続するには mini USB ケーブルが必要です。これにより SDx IDE のシリアル ターミナルに通信できるようになります。この接続は、アプリケーション ソフトウェアからの出力 (情報メッセージを含む) を確認するのに必要です。ボードの Digilent ポートに接続するには Micro USB ケーブルも必要で、これによりビットストリームおよびバイナリをダウンロードできます。この接続は、ターゲット ボードでアプリケーションが起動される際に FPGA をプログラムするために必要です。イーサネット ケーブルも必要です。Linux TCF エージェントには、ターゲット ボードと通信するのにイーサネット リンクが必要です。最後に、SD カードから起動できるように、SD カード スロットのサイドのジャンパーが正しく設定されているかどうか確認します。  
 
-  1. Connect the mini USB cable to the UART port.  
+  1. mini USB ケーブルを UART ポートに接続します。  
 
-  2. Ensure that the JTAG mode is set to use the Digilent cable and that the micro USB cable is connected.  
+  2. JTAG モードが Digilent ケーブルを使用するように設定されており、Micro USB ケーブルが接続されていることを確認します。  
 
      ![](./images/syl1517376007022.png)    
 
-  3. Set the DIP switch (circled in red above) to SD-boot mode but do not plug in an SD card.  
+  3. DIP スイッチ (上の図の赤丸) を SD ブート モードに設定します。SD カードは挿入しないでください。  
 
-  4. Power on the board.  
+  4. ボードに電源を投入します。  
 
-Ensure that you allow Windows to install the `USB-UART` driver and the `Digilent` driver to enable the SDx IDE to communicate with the board.  
+Windows で `USB-UART` ドライバーと `Digilent` ドライバーがインストールされるようにし、SDx IDE がボードと通信できるようにします。  
 
->**:information_source: IMPORTANT!** Make sure that the jumper settings on the board correspond to SD-boot or JTAG-boot. Otherwise the board may power up in some other mode such as QSPI boot, and attempt to load something from the QSPI device or other boot device, which is not related to this lab.
-
-</details>
-
-<details>
-<summary><strong>Step 2: Creating a Standalone Project</strong></summary>
-
-  Create a new SDx™ project (lab6) for the ZC702 platform and Standalone OS using the design template for Matrix Multiplication and Addition.  
-
-  To create a standalone project in the SDx IDE:  
-
- 1. Launch the SDx IDE.  
- 2. Select **File > New > SDx Project**.  
- 3. In the Project Type page, Application Project is selected by default. Click **Next**.  
- 4. Specify the name of the project (for example, lab6) in the Project name field. Click **Next**.  
- 5. From the Platform list, select zc702. Click **Next**.  
- 6. From the System Configuration drop-down list, select Standalone. Click **Next**.  
- 7. From the list of application templates, select **Matrix Multiplication and Addition** and click **Finish**.  
- 8. Click on the tab labeled lab6 to select the SDx Project Settings (if the tab is not visible, double click the project.sdx file in the Project Explorer) and in the HW functions panel, observe that the `mmult` and `madd` functions were marked as hardware functions when the project was created.  
- 9. If hardware functions were removed or not marked, you would click on the Add HW Functions icon ![](./images/kye1517376007003.png) to invoke the dialog box to specify hardware functions. Ctrl-click (press the Ctrl key and left click) on the `mmult` and `madd` functions to select them in the Matching Elements list. Click OK and observe that both functions have been added to the Hardware Functions list.  
- 10. In the Project Explorer right-click the project and select Build Project from the context menu that appears.  
-     SDx builds the project. A dialog box displaying the status of the build process appears.  
+>**:information_source: 重要:**ボードのジャンパーが SD ブートまたは JTAG ブートに設定されていることを確認します。このようにしておかないと、ボードが QSPI ブートなどのその他のモードでパワーアップし、QSPI デバイスまたはその他のブート デバイスからこの演習に関係のないものが読み込まれてしまいます。
 
 </details>
 
 <details>
-<summary><strong>Step 3: Setting up the Debug Configuration</strong></summary>
+<summary><strong>手順 2: Standalone プロジェクトの作成</strong></summary>
 
-  To set up the debug configuration:  
+  [Matrix Multiplication and Addition] デザイン テンプレートを使用して ZC702 プラットフォームおよびスタンドアロン OS の新しい SDx™ プロジェクト (lab6) を作成します。  
 
-  1. In the Project Explorer view click on the top level project (`lab6`) in the Debug folder in the lab6 project and in the toolbar click on the Debug icon or use the Debug icon pull-down menu to select **Debug As > Launch on Hardware (SDx Application Debugger)**. Alternatively, right-click the project and select **Debug As > Launch on Hardware (SDx Application Debugger)**.
-     The Confirm Perspective Switch dialog box appears.  
+  SDx IDE でスタンドアロン プロジェクトを作成する手順は、次のとおりです。  
 
-   >**:information_source: IMPORTANT!** Ensure that the board is switched on before debugging the project.  
-
-  2. Click Yes to switch to the debug perspective.  
-     You are now in the Debug Perspective of the SDx IDE. Note that the debugger resets the system, programs and initializes the device, then breaks at the `main` function. The source code is shown in the center panel, local variables in the top right corner panel and the SDx log at the bottom right panel shows the Debug configuration log.  
-
-  3. Before you start running your application you need to connect a serial terminal to the board so you can see the output from your program. Use the following settings: (Connection Type: Serial, Port: COM<n>, Baud Rate: 115200 baud).  
+ 1. SDx IDE が起動します。  
+ 2. [File] → [New] → [SDx Project] をクリックします。  
+ 3. [Project Type] ページでは、デフォルトで [Application Project] がオンになっています。[Next] をクリックします。  
+ 4. [Project name] フィールドにプロジェクト名を指定します (例: lab6)。[Next] をクリックします。  
+ 5. [Platform] から [zc702] を選択します。[Next] をクリックします。  
+ 6. [System Configuration] ドロップダウン リストから [Standalone] を選択します。[Next] をクリックします。  
+ 7. [Available Templates] のリストから [Matrix Multiplication and Addition] を選択し、[Finish] をクリックします。  
+ 8. [lab6] タブをクリックし (タブが表示されていない場合は [Project Explorer] ビューで project.sdx ファイルをダブルクリック)、[SDx Project Settings] の [HW functions] パネルで `mmult` および `madd` 関数がハードウェア関数としてマークされていることを確認します。  
+ 9. ハードウェア関数としてマークされていない場合は、[Add HW Functions] ボタン ![](./images/kye1517376007003.png) をクリックしてダイアログ ボックスを開き、ハードウェア関数としてマークします。[Matching items] リストで Ctrl キーを押しながら `mmult` と `madd` 関数をクリックして選択します。[OK] をクリックして、両方の関数を [Hardware Functions] セクションに追加します。  
+ 10. [Project Explorer] タブでプロジェクトを右クリックし、[Build Project] をクリックします。  
+     SDx によりプロジェクトがビルドされます。ビルド プロセスのステータスを示すダイアログ ボックスが表示されます。  
 
 </details>
 
 <details>
-<summary><strong>Step 4: Running the Application</strong></summary>
+<summary><strong>手順 3: デバッグ コンフィギュレーションの設定</strong></summary>
 
-  Click the Resume icon ![](./images/evl1517376007006.png) to run your application, and observe the output in the terminal window.  
+  デバッグ コンフィギュレーションを設定するには、次の手順に従います。  
 
-  >**:pushpin: NOTE:**  The source code window shows the `_exit` function, and the terminal tab shows the output from the matrix multiplication application.  
+  1. [Project Explorer] ビューで lab6 プロジェクトの Debug フォルダーに含まれる最上位プロジェクト (`lab6`) をクリックし、ツールバーの [Debug] ボタンをクリックするか、[Debug] ボタンのプルダウン メニューから [Debug As] → [Launch on Hardware (SDx Application Debugger)] をクリックします。または、プロジェクトを右クリックし、[Debug As] → [Launch on Hardware (SDx Application Debugger)] をクリックします。
+     [Confirm Perspective Switch] ダイアログ ボックスが表示されます。  
+
+   >**:information_source: 重要:**プロジェクトをデバッグする前にボードのスイッチがオンになっていることを確認してください。  
+
+  2. [Yes] をクリックして [Debug] パースペクティブに切り替えます。  
+     これで、SDx IDE が [Debug] パースペクティブになりました。デバッガーによりシステムがリセットされ、デバイスがプログラムおよび初期化され、`main` 関数で停止します。中央のパネルにソース コード、右上のパネルにローカル変数、右下のパネルに SDx ログが表示されます。  
+
+  3. アプリケーションを実行する前に、シリアル ターミナルをボードに接続して、プログラムからの出力が表示されるようにする必要があります。[Connection Type]: Serial、[Port]: COM<n>、[Baud Rate]: 115200 ボーに設定します。  
+
+</details>
+
+<details>
+<summary><strong>手順 4: アプリケーションの実行</strong></summary>
+
+  [Resume] アイコン ![](./images/evl1517376007006.png) をクリックしてアプリケーションを実行し、出力をターミナル ウィンドウで確認します。  
+
+  >**:pushpin: 注記:**  ソース コード ウィンドウに `_exit` 関数が表示され、[Terminal] タブに行列乗算アプリケーションからの出力が表示されます。  
 
   ![](./images/krz1517374817479.png)  
 
 </details>
 
 <details>
-<summary><strong>Additional Exercises</strong></summary>
+<summary><strong>その他の演習</strong></summary>
 
->**:pushpin: NOTE**  Instructions provided in this section are optional.  
+>**:pushpin: 注記:**  このセクションの手順は、オプションです。  
 
-  You can learn how to debug/step through the application and debug a Linux application.    
+  アプリケーションを使用したデバッグ/ステップの方法、Linux アプリケーションのデバッグ方法について説明します。    
 
   <details>
-  <summary><strong>Stepping Through the Code</strong></summary>  
+  <summary><strong>コードのステップ スルー</strong></summary>  
 
-  The Debug perspective has many other capabilities that have not been explored in this lab. The most important is the ability to step through the code to debug it.  
+  [Debug] パースペクティブには、この演習では説明しなかったその他多くの機能が含まれます。最も重要なのは、デバッグするコードをステップ スルーする機能です。  
 
-  1. Continuing in lab6, right-click debug hierarchy in the Debug view (System Debugger using Debug_lab6.elf), and click Disconnect in the menu.  
-  2. Right-click the top-level debug folder again, and click Remove all Terminated in the menu.  
-  3. Click on the BUG icon to launch the debugger. Then step through the code using the step-into, step-over, and step-return buttons.  
-  4. As you step through the code, examine the values of different variables.  
+  1. lab6 の [Debug] ビュー (Debug_lab6.elf を使用した System Debugger) でデバッグ階層を右クリックし、[Disconnect] をクリックします。  
+  2. 最上位のデバッグ フォルダーをもう 一度右クリックして、[Remove all Terminated] をクリックします。  
+  3. バグ アイコンをクリックしてデバッガーを起動し、[step-into]、[step-over]、[step-return] ボタンを使用してコードをステップ スルーします。  
+  4. コードをステップ スルーしながら、さまざまな変数の値を確認します。  
 
   </details>
 
   <details>
-  <summary><strong>Debugging Linux Applications</strong></summary>
+  <summary><strong>Linux アプリケーションのデバッグ</strong></summary>
 
-  To debug a Linux application in the SDSoC environment:  
+  SDSoC 環境で Linux アプリケーションをデバッグするには、次の手順に従います。  
 
-  1. Create a project, for example lab6_linux, targeted to the Platform ZC702 and the System Configuration Linux. From the list of application templates, select Matrix Multiplication and Addition.  
-     For details, see [Creating a New Project](drw1517355484536.md).  
+  1. プロジェクトを作成し (例: lab6_linux)、[Platform] に [zc702] を、[System Configuration] に [Linux] を指定します。アプリケーション テンプレートのリストから [Matrix Multiplication and Addition] を選択します。  
+     詳細は、[新規プロジェクトの作成](drw1517355484536.md)を参照してください。  
 
-  2. Observe that the functions mmult and madd are marked for hardware implementation in the HW functions table of the SDx Project Settings.  
-     For details, see [Marking Functions for Hardware Implementation](mey1517355484594.md).  
+  2. [SDx Project Settings] の [HW functions] の表で、mmult および madd 関数がハードウェア インプリメンテーション用にマークされます。  
+     詳細は、[ハードウェア インプリメンテーション用の関数のマーク](mey1517355484594.md) を参照してください。  
 
-  3. Build a project and generate executable, bitstream, and SD card boot image. For the Active build configuration, use Debug.  
-     For details, see [Building a Design with Hardware Accelerators](rof1517355816863.md).  
+  3. プロジェクトをビルドして実行ファイル、ビットストリーム、SD カード ブート イメージを生成します。アクティブ ビルド コンフィギュレーションに [Debug] を使用します。  
+     詳細は、[ハードウェア アクセラレータを使用したデザインのビルド](rof1517355816863.md)を参照してください。  
 
-  4. Here we are using the SDSoC environment Terminal view invoked from Window > Show View > Other and selecting Terminal > Terminal. Click the Terminal tab near the bottom of the Debug window and confirm the settings (Connection Type: Serial, Port: COM<n>, Baud Rate: 115200 baud).  
-     For the COM port settings to be visible,the board must be powered up:  
+  4. ここでは、[Window] → [Show View] → [Other] をクリックし、[Terminal] → [Terminal] をクリックして起動した SDSoC 環境ターミナルを使用します。[Terminal] タブをクリックし、設定 ([Connection Type]: Serial、[Port]: COM<n>、[Baud Rate]: 115200 ボー) を確認します。  
+     COM ポート設定が表示されるようにするには、ボードに電源を投入する必要があります。  
 
-      * Power up the board without an SD card plugged in.  
-      * Click on the Terminal Settings icon ![](./images/srz1517375659047.png), set the configuration and click **OK**.  
-      * The terminal indicates it is connected. Click the red disconnect icon ![](./images/mge1517375659058.png) to disconnect the terminal from the board, and power off the board.  
+      * SD カードを挿入せずにボードに電源を投入します。  
+      * [Terminal] タブの [Settings] アイコン ![](./images/srz1517375659047.png) をクリックし、コンフィギュレーションを設定し、[OK] をクリックします。  
+      * ターミナルに接続されていることが示されます。赤い [Disconnect] アイコン ![](./images/mge1517375659058.png) をクリックしてボードからターミナルの接続を解除して、ボードの電源を切ります。  
 
-  5. Copy the contents of the generated `sd_card` directory to an SD card, and plug the SD card into the ZC702 board.  
-  6. Ensure that the board is connected to your computer via an Ethernet cable.
-     1. Power on the board.
-     2. Click on the Terminal tab and click the green connection icon to connect the terminal to the board.
-        The Linux boot log is displayed on the terminal.
-     3. When you see the terminal prompt, set the IP address by entering `ifconfig eth0 192.168.0.2`. Your computer must be configured so the Ethernet adapter is on the same subnetwork as the ZC702 board.
-        1. On a Windows host system, open **Control Panel > Network and Sharing Center**.
-        2. Click the **Ethernet** link to open the Ethernet Status dialog box for the Ethernet Adapter.
-        3. Click the Properties button.
-        4. Select Internet Protocol Version 4 (TCP/IPv4) and click on Properties button.
-        5. On the General tab, select Use the Following IP Address and enter `192.168.0.1`. For the Subnet mask, enter 255.255.255.0.
-        6. Click OK. Close all the dialog boxes.  
+  5. 生成した `sd_card` ディレクトリの内容を SD カードにコピーして、SD カードを ZC702 ボードに挿入します。  
+  6. ボードがイーサネット ケーブルを使用してコンピューターに接続されていることを確認します。
+     1. ボードに電源を投入します。
+     2. [Terminal] タブをクリックして、緑の [Connect] アイコンをクリックして、ターミナルをボードに接続します。
+        Linux のブート ログがターミナルに表示されます。
+     3. ターミナル プロンプトが表示されたら、`ifconfig eth0 192.168.0.2` と入力して IP アドレスを設定します。コンピューターは、イーサネット アダプターが ZC702 ボードと同じサブネットワークにあるように設定する必要があります。
+        1. Windows ホスト システムで [コントロール パネル] → [ネットワークと共有センター] を開きます。
+        2. [Ethernet] リンクをクリックして、イーサネット アダプターの [Ethernet Status] ダイアログ ボックスを開きます。
+        3. [プロパティ] ボタンをクリックします。
+        4. [インターネット プロトコル バージョン 4 (TCP/IPv4)] を選択し、[プロパティ] ボタンをクリックします。
+        5. [全般] タブで [次の IP アドレスを使う] をオンにして `192.168.0.1` と入力します。[サブネット マスク] に対して 255.255.255.0 と入力します。
+        6. [OK] をクリックします。すべてのダイアログ ボックスを閉じます。  
 
-      If your subnetwork already has a device at `192.168.0.1`, you can choose another address, as long as it begins with `192.168.0.x`.  
+      サブネットワークに既に `192.168.0.1` のデバイスが含まれる場合は、別のアドレスを選択してください。`192.168.0.x` で始まるアドレスはどれでも使用できます。  
 
-  7. Back in the SDx environment in the Target Connections panel, expand Linux TCF Agent and right-click on Linux Agent (default), then select Edit.  
-  8. In the Target Connection Details dialog set up the IP address and port (1534).  
+  7. SDx 環境に戻り、[Target Connections] パネルで [Linux TCF Agent] を展開表示して [Linux Agent (default)] を右クリックし、[Edit] をクリックします。  
+  8. [Target Connection Details] ダイアログ ボックスで IP アドレスとポート (1534) を設定します。  
 
      ![](./images/rqi1517376007084.png)  
 
-  9. Click OK.  
-  10. In the Project Explorer click on the ELF file to select it and click on the Debug icon in the toolbar (or use the Debug icon pull-down menu to select Debug As > Launch on Hardware (SDx Application Debugger)) to go to the Debug perspective, and run or step through your code.  
+  9. [OK] をクリックします。  
+  10. [Project Explorer] ビューで ELF ファイルをクリックして選択し、ツールバーの [Debug] アイコンをクリック (または [Debug] アイコンのプルダウン メニューから [Debug As] → [Launch on Hardware (SDx Application Debugger)] をクリック) して、[Debug] パースペクティブに移動してコードを実行またはステップ実行します。  
 
-  >**:pushpin: NOTE**  Your application output displays in the Console view instead of the Terminal view.
+  >**:pushpin: 注記:**  アプリケーションの出力は [Terminal] タブではなく [Console] タブに表示されます。
 
 </details>
 </details>
 
-### Summary
+### まとめ
 
-After completing this tutorial, you should be able to do the following:
+このチュートリアルを終了すると、次ができるようになります。
 
-  * Use the SDx IDE to download and run your standalone application.  
-  * Optionally step through your source code in the SDx IDE (debug mode) and observe various registers and memories. Note that this is limited to code running on the ARM A9, and does not apply to code that has been converted into hardware functions.  
+  * SDx IDE を使用して、スタンドアロン アプリケーションをダウンロードして実行。  
+  * オプションで SDx IDE でソース コードをステップ スルーして、さまざまなレジスタおよびメモリを確認。(ARM A9 で実行するコードに制限され、ハードウェア関数に変換されたコードには適用されない)。  
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>

@@ -1,180 +1,180 @@
-<table style="width:100%">
+﻿<table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC 環境チュートリアル: 概要</h1>
 </th>
   </tr>
   <tr>
-    <td align="center"><a href="README.md">Introduction</a></td>
-    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
-    <td align="center"><a href="lab-2-performance-estimation.md">Lab 2: Performance Estimation</a></td>
-    <td align="center"><a href="lab-3-optimize-the-application-code.md">Lab 3: Optimize the Application Code</a></td>
-    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">Lab 4: Optimize the Accelerator Using Directives</a></td>
+    <td align="center"><a href="README.md">概要</a></td>
+    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">演習 1: SDSoC 開発環境の概要</a></td>
+    <td align="center"><a href="lab-2-performance-estimation.md">演習 2: パフォーマンスの見積もり</a></td>
+    <td align="center"><a href="lab-3-optimize-the-application-code.md">演習 3: アプリケーション コードの最適化</a></td>
+    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">演習 4: 指示子を使用したアクセラレータの最適化</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="lab-5-task-level-pipelining.md">Lab 5: Task-Level Pipelining</a></td>
-    <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
-    <td align="center">Lab 7: Hardware Debug</td>
-    <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
+    <td align="center"><a href="lab-5-task-level-pipelining.md">演習 5: タスク レベルのパイプライン</a></td>
+    <td align="center"><a href="lab-6-debug.md">演習 6: デバッグ</a></td>
+    <td align="center">演習 7: ハードウェア デバッグ</td>
+    <td align="center"><a href="lab-8-emulation.md">演習 8: エミュレーション</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">演習 9: GitHub からのサンプルのインストール</a></td>
 </table>
 
-## Lab 7: Hardware Debug  
+## 演習 7: ハードウェア デバッグ  
 
-This lab provides step-by-step instructions to create a project, enable trace, run the application, and view the trace visualization. This tutorial assumes that the host PC is connected directly to the Zynq-7000 board, and that the board is a Xilinx ZC702 board. This tutorial is applicable to other boards and configurations. However, the details of the steps might differ slightly. The  
-tutorial assumes you have already installed and started the SDx IDE and chosen a workspace.   
+この演習では、プロジェクトを作成し、トレースをオンにし、アプリケーションを実行し、トレース結果を表示して確認する方法を手順を追って説明します。このチュートリアルでは、ホスト PC が直接 Zynq-7000 ボードに接続されており、ボードはザイリンクス ZC702 ボードであると想定しています。このチュートリアルは、ほかのボードおよびコンフィギュレーションにも適用できますが、詳細な手順は少し違う可能性もあります。このチュートリアルでは、既に SDx IDE をインストールして GUI を起動してワークスペースを選択したものと想定して説明します。  
+   
 
->**:pushpin: NOTE**  You can complete this tutorial even if you do not have a ZC702 board. When creating the SDx environment project, select your board and one of the available templates, if the suggested template **Matrix Multiplication** is not found. For example, boards such as the MicroZed with smaller Zynq-7000 devices offer the **Matrix Multiplication (area reduced)** application as an available template. Any application can be used to learn the objectives of this tutorial.  
+>**:pushpin: 注記:**  このチュートリアルは、ZC702 ボードがなくても終了できます。SDx プロジェクトを作成する際に、推奨されている [Matrix Multiplication] テンプレートが見つからない場合は、ボードと使用可能なテンプレートの 1 つを選択してください。たとえば、より小型の Zynq-7000 デバイスを含む MicroZed ボードなどのボードの場合、使用可能なテンプレートに [Matrix Multiplication (area reduced)] アプリケーションがリストされます。このチュートリアルの学習目標は、どのアプリケーションでも達成できるようになっています。  
 
-### Tracing a Standalone or Bare-Metal Project  
+### スタンドアロンまたはベアメタル プロジェクトのトレース  
 
-You can learn how to create a new project, configure the project to enable the  
-SDSoC trace feature, build the project, and run the application on the board.  
+新規プロジェクトの作成方法、SDSoC トレース機能を有効にするようにプロジェクトを設定する方法、プロジェクトのビルド方法、ボード上でのアプリケーションの実行方法などを学ぶことができます。  
+  
 
 <details>
-<summary><strong>Step 1: Creating a New Project</strong></summary>  
+<summary><strong>手順 1: 新規プロジェクトの作成</strong></summary>  
 
-1. Select **File > New > SDx Project**.  
-2. In the Project Type page, **Application Project** is selected by default. Click **Next**.   
-3. In the Create a New SDx Project page, name the project `mmult_trace` and click **Next**.  
-4. In the Platform page, select **zc702** and click **Next**.  
+1. [File] → [New] → [SDx Project] をクリックします。  
+2. [Project Type] ページでは、デフォルトで [Application Project] がオンになっています。[Next] をクリックします。   
+3. Create a New SDx Project ページで、[Project name] に `mmult_trace` と入力し、[Next] をクリックします。  
+4. [Platform] ページで [zc702] を選択し、[Next] をクリックします。  
 
-   >**:pushpin: NOTE**  Select the appropriate platform if you are using something other than the ZC702 board.  
+   >**:pushpin: 注記:**  ZC702 ボード以外を使用している場合は、適切なプラットフォームを選択します。  
 
-5. Select **Standalone OS** as the System Configuration.  
-6. Select **Matrix Multiplication Data Size** as the template for this project and click **Finish**.  
-7. In the Project Explorer, expand the various folders by clicking on the arrow, then open the `mmult.cpp` file.
+5. [System Configuration] に [Standalone OS] を選択します。  
+6. [Available Templates] で [Matrix Multiplication Data Size] を選択し、[Finish] をクリックします。  
+7. [Project Explorer] ビューで矢印アイコンをクリックしてさまざまなフォルダーを展開表示し、`mmult.cpp` ファイルを開きます。
 
    ![](./images/ucg1517375658989.png)  
 
-8. Change the number of tests symbol NUM_TESTS from 256 to 10, then save and close the file.  
+8. テスト シンボル NUM_TESTS の数値を 256 から 10 に変更し、ファイルを保存して閉じます。  
 
    ![](./images/yqo1517375659050.png)  
 
-9. In the SDx Project Settings (in the mmult_trace tab), notice that mmult_accel in the HW Functions section of the project overview is already marked for implementation in hardware.  
+9. [SDx Project Settings] ([mmult_trace] タブ) の [Hardware Functions] セクションで mmult_accel がハードウェアにインプリメントされるようマークされていることを確認します。  
 
    ![](./images/kyx1527817305731.png)  
 
 </details>
 
 <details>
-<summary><strong>Step 2: Configuring the Project to Enable the Trace Feature in the Options Section</strong></summary>  
+<summary><strong>手順 2: [Options] セクションでトレース機能をオンにしてプロジェクト設定を変更</strong></summary>  
 
-In the Project Settings window, click the checkbox for Enable event tracing.   
+[Project Settings] ウィンドウで [Enable event tracing] をオンにします。   
 
 ![](./images/ajn1527822739300.png)  
 
 </details>
 
 <details>
-<summary><strong>Step 3: Building the Project</strong></summary>
+<summary><strong>手順 3: プロジェクトのビルド</strong></summary>
 
-Click the Build button to start building the project. (This will take a while.)  
+[Build] ボタンをクリックし、プロジェクトをビルドします。これには多少時間がかかります。  
 
-After all the hardware functions are implemented in Vivado HLS, and after the Vivado IP integrator design is created, you will see `Inserted # hardware monitor cores` displayed in the console. This message validates that the trace feature is enabled for your design and tells you how many hardware monitor cores have been inserted automatically for you.  
+Vivado HLS ですべてのハードウェア関数がインプリメントされ、Vivado IP インテグレーター デザインが作成されると、コンソールに `Inserted # hardware monitor cores` というメッセージが表示されます。このメッセージは、デザインでトレース機能がイネーブルになったことと、自動挿入されたハードウェア モニター コアの数を示します。  
 
 ![](./images/ggi1517375659006.png)  
 
 </details>
 
 <details>
-<summary><strong>Step 4: Running the Application on the Board</strong></summary>  
+<summary><strong>手順 4: ボードでのアプリケーションの実行</strong></summary>  
 
-  1. When the build is finished, right-click on the project in the Project Explorer and select **Run As > Trace Application (SDx Application Debugger)**.  
+  1. ビルドが終了したら、[Project Explorer] ビューでプロジェクトを右クリックし、[Run As] → [Trace Application (SDx Application Debugger)] をクリックします。  
 
-     >**:pushpin: NOTE**  Be sure not to select **Debug As** because it will enable breakpoints. If your program breakpoints during execution, the timing will not be accurate (because the software will stop, the hardware will continue running, and the trace timer used for timestamping will continue to run).  
+     >**:pushpin: 注記:**  [Debug As] をオンにするとブレークポイントが有効になるので、オンにしないようにしてください。プログラムの実行がブレークポイントで停止すると、ソフトウェアは停止しますが、ハードウェアとタイムスタンプに使用されるトレース タイマーは実行し続けるので、タイミングが正確なものになりません。  
 
-     When you click on the **Trace Application (SDx Application Debugger)** option, the GUI downloads the bitstream to the board followed by the application ELF, starts the application, and then begins collecting the trace data produced until the application exits. After the application finishes (or any error in collecting the trace data occurs) the trace data collected is displayed.  
+     [Trace Application (SDx Application Debugger)] をクリックすると、ボードにビットストリームおよびアプリケーション ELF がダウンロードされ、アプリケーションが開始されて、トレース データの収集が開始されてアプリケーションが終了するまで収集されます。アプリケーションが終了するかトレース データの収集中にエラーが発生すると、収集されたデータが表示されます。  
 
-     >**:pushpin: NOTE**  The application must exit successfully for trace data to be collected successfully. If the application does not exit normally (i.e., hangs in hardware or software, or the Linux kernel crashes), the trace data might not be collected correctly.  
+     >**:pushpin: 注記:**  トレース データが正しく収集されるためには、アプリケーションが正常に終了する必要があります。ハードウェアまたはソフトウェアが停止したり、Linux カーネルがクラッシュするなど、アプリケーションが正常に終了しなかった場合、トレース データが正しく収集されない可能性があります。  
 
      ![](./images/gop1527872256475.png)  
 
-  2. After the application exits, and all trace data is collected and displayed, you will see two main areas in the trace visualization: the event textual listing on top (yellow highlighted border), and the event timeline on the bottom (purple highlighted border). Both areas display the same information. The top textual listing orders event by time in a descending order. The bottom event timeline shows the multiple axes for each trace point in the design (either a monitor core or a region of software that is being traced).   
+  2. アプリケーションが終了すると、すべてのトレース データが収集され、表示されます。イベントのテキスト リスト (下の図で黄色で囲まれたエリア) とイベント タイムライン (下の図で紫色で囲まれたエリア) の 2 つのエリアがあります。これらのエリアは、同じ情報を示します。テキスト リストには、イベントが時間の降順に表示されます。イベント タイムラインは、デザインの各トレース ポイント (トレースされたモニター コアまたはソフトウェアの領域) が複数の軸で表示されます。   
 
      ![](./images/soh1517375659013.png)  
 
-     The first thing you should notice is that the 10 iterations of the application are clearly visible as repeated groups of events. Orange events are software events, green events are accelerator events, and blue events are data transfer events. You can also click the **Show Legend** icon to see the transactions specified by different colors.
+     アプリケーションの 10 回の反復が繰り返されたイベント グループとして示されているのがわかります。オレンジのイベントはソフトウェア イベント、緑のイベントはアクセラレータ イベント、青のイベントはデータ転送イベントです。別の色で指定されたトランザクションは、[Show Legend] アイコンをクリックしても確認できます。
 
      ![](./images/spy1527872720388.png)  
 
-     This opens the **State Transition Visualizer** dialog box as shown below.
+     次のような [State Transition Visualizer] ダイアログ ボックスが開きます。
 
      ![](./images/lvb1527872988341.png)  
 
-  3. If the names of the trace points in the event timeline are abbreviated with an ellipsis ("...") you can expand the panel by clicking on the border between the grey on the left and the white on the right (the border turns red when you hover the cursor over the right spot), and then clicking and dragging to the right.  
+  3. イベント タイムラインのトレース ポイントの名前に省略記号 (...) が付いている場合、名前が表示されているグレーのエリアとタイムラインが表示されている白のエリアの境界 (適切な位置にカーソルを置くと境界線が赤色に変わる) をクリックして右にドラッグすると、名前のエリアを広げることができます。  
 
      ![](./images/bti1517375659015.png)    
 
-  4. If you hover the cursor over one of the events, you will see a detailed tool-tip appear displaying the detailed information about each trace. The example below shows the first accelerator event, which corresponds to the start/stop of the `mmult_accel` function that we chose to implement in hardware (via Vivado HLS). The start time is at 0.002122960 seconds (2,122 ns) and the stop time is at 0.003850640 seconds (3,850 ns). It also shows the duration of the event (which is the runtime of the accelerator in this case) as 0.001727680 seconds (1,727 ns).   
+  4. イベントのいずれかにカーソルを置くと、ツール ヒントに各トレースの詳細情報が表示されます。次の図に、最初のアクセラレータ イベントを示します。このイベントは、Vivado HLS でハードウェアにインプリメントするよう選択した `mmult_accel` 関数の開始/停止に対応します。開始時間は 0.002122960 秒 (2,122 ns) で、停止時間は 0.003850640 秒 (3,850 ns) です。イベントの期間 (この場合はアクセラレータの実行時間) は 0.001727680 秒 (1,727 ns) です。   
 
      ![](./images/opc1517375349421.png)  
 
 </details>
 
 <details>
-<summary><strong>Step 5: Tracing a Linux Project</strong></summary>  
+<summary><strong>手順 5: Linux プロジェクトのトレース</strong></summary>  
 
-You can learn how to create a new project, configure the project to enable the SDx trace feature, build the project, run the application on the board, and view the trace data.  
+新規プロジェクトの作成方法、SDx トレース機能を有効にするようにプロジェクトを設定する方法、プロジェクトのビルド方法、ボード上でのアプリケーションの実行方法、トレース データの確認方法などを学ぶことができます。  
 
-  1. Create a new project.  
-     1. Select **File > New > SDx Project**.  
-     2. In the Project Type page, **Application Project** is selected by default. Click **Next**.  
-     3. In the New Project wizard, name the project `mmult_linux_trace` and click **Next**.  
-     4. Select zc702 as the Hardware Platform. Click **Next**.  
-     5. For System configuration select **Linux**.  
-     6. Click **Next**.  
-     7. Select **Matrix Multiplication Data Size** as the template for this project and click **Finish**.  
-     8. In the Project Explorer, expand the various folders by clicking on the arrow icon, then open the `mmult.cpp` file under the src folder.  
+  1. 新しいプロジェクトを作成します。  
+     1. [File] → [New] → [SDx Project] をクリックします。  
+     2. [Project Type] ページでは、デフォルトで [Application Project] がオンになっています。[Next] をクリックします。  
+     3. New Project ウィザードで、[Project name] に `mmult_linux_trace` と入力し、[Next] をクリックします。  
+     4. ハードウェア プラットフォームに [zc702] を選択します。[Next] をクリックします。  
+     5. [System Configuration] に [Linux] を選択します。  
+     6. [Next] をクリックします。  
+     7. [Available Templates] で [Matrix Multiplication Data Size] を選択し、[Finish] をクリックします。  
+     8. [Project Explorer] ビューで矢印アイコンをクリックしてさまざまなフォルダーを展開表示し、src フォルダーの下の `mmult.cpp` ファイルを開きます。  
 
         ![](./images/rwl1527873638755.png)      
 
-     9. Change the number of tests symbol NUM_TESTS from **256** to 10, then save and close the file.  
+     9. テスト シンボル NUM_TESTS の数値を **256** から 10 に変更し、ファイルを保存して閉じます。  
 
         ![](./images/njs1517375659074.png)    
 
-     10. In the SDx Project Settings (in the mmult_linux_trace tab), notice that the mmult_accel in the HW Functions section of the project overview is already marked for implementation in hardware.  
+     10. [SDx Project Settings] ([mmult_linux_trace] タブ) の [Hardware Functions] セクションで mmult_accel がハードウェアにインプリメントされるようマークされていることを確認します。  
 
-  2. Configure the project to enable the Trace feature in the SDx IDE.  
-     In the Project Overview window, click the checkbox for Enable Event Tracing under the Options section.  
+  2. プロジェクト設定を変更し、SDx IDE でトレース機能をイネーブルにします。  
+     [SDx Project Settings] の [Options] セクションの [Enable event tracing] をオンにします。  
 
-  3. Build the project.  
-     Click the Build button to start building the project. (This will take a while.)  
+  3. プロジェクトをビルドします。  
+     [Build] ボタンをクリックし、プロジェクトをビルドします。これには多少時間がかかります。  
 
-     After all the hardware functions are implemented in the Vivado HLS, and after    the Vivado IP integrator design is created, you will see `Inserted # hardware monitor cores` displayed in the console. This message validates that the trace feature is enabled for your design and tells you how many hardware monitor cores have been inserted automatically for you.    
+     Vivado HLS ですべてのハードウェア関数がインプリメントされ、Vivado IP インテグレーター デザインが作成されると、コンソールに `Inserted # hardware monitor cores` というメッセージが表示されます。このメッセージは、デザインでトレース機能がイネーブルになったことと、自動挿入されたハードウェア モニター コアの数を示します。    
 
      ![](./images/wpr1504035138111.png)    
 
      ![](./images/oze1513095574595.png)  
 
-  4. Run the application on the board.  
-     1. When the build is finished, copy the files in the sd_card directory onto an SD card and insert into the SD card socket on the board.  
-     2. Connect an Ethernet cable to the board (connected to your network, or directly to the PC).  
-     3. Connect the USB/UART port to the PC and open a serial console by clicking the + button on the SDx Terminal tab.  
-     4. Connect the USB/JTAG port to the PC and boot Linux on the board.  
-     5. Check the IP address of the zc702 board by looking at the SDx Terminal log.
+  4. ボード上でアプリケーションを実行します。  
+     1. ビルドが完了したら、sd_card ディレクトリのファイルを SD カードにコピーし、SD カードをボードの SD カード ソケットに挿入します。  
+     2. イーサネット ケーブルをボードに接続します (ネットワークに接続するか、PC に直接接続)。  
+     3. USB/UART ポートを PC に接続し、[SDx Terminal] タブで + ボタンをクリックしてシリアル コンソールを開きます。  
+     4. USB/JTAG ポートを PC に接続し、ボード上で Linux を起動します。  
+     5. [SDx Terminal] ログから ZC702 ボードの IP アドレスを確認します。
 
         ![](./images/kln1517375658985.png)  
 
-  6. From the Target Connections view, set up the Linux TCF Agent as in [Using the Performance Estimation Flow With Linux](lab-2-performance-estimation.md).  
+  6. [Linux を使用したパフォーマンス見積もりの使用](lab-2-performance-estimation.md) の方法に従って [Project Explorer] ビューで Linux TCF エージェントを設定します。  
 
-  7. Right-click on the project in the Project Explorer and select **Run As > Trace Application (SDx Application Debugger)**.  
+  7. [Project Explorer] ビューでプロジェクトを右クリックし、[Run As] → [Trace Application (SDx Application Debugger)] をクリックします。  
 
-     >**:pushpin: NOTE**  Be sure not to select Debug As, because it will enable breakpoints. If your program breakpoints during execution, the timing will not be accurate (because the software will stop, the hardware will continue running, and the trace timer used for timestamping will continue to run).  
+     >**:pushpin: 注記:**  [Debug As] をオンにするとブレークポイントが有効になるので、オンにしないようにしてください。プログラムの実行がブレークポイントで停止すると、ソフトウェアは停止しますが、ハードウェアとタイムスタンプに使用されるトレース タイマーは実行し続けるので、タイミングが正確なものになりません。  
 
-     When you click on the Trace Application (SDx Application Debugger) option, the GUI downloads the ELF over the Ethernet TCF Agent connection, starts the application, and then begins collecting the trace data produced until the application exits. After the application finishes (or any error in collecting the trace data occurs) the trace data collected is displayed.  
+     [Trace Application (SDx Application Debugger)] をクリックすると、イーサネット TCF エージェント接続を介して ELF ファイルがダウンロードされ、アプリケーションが開始して、トレース データの収集が開始されてアプリケーションが終了するまで収集されます。アプリケーションが終了するかトレース データの収集中にエラーが発生すると、収集されたデータが表示されます。  
 
-     >**:pushpin: NOTE**  The application must exit successfully for trace data to be collected successfully. If the application does not exit normally (i.e., hangs in hardware or software, or the Linux kernel crashes), the trace data might not be collected correctly.  
+     >**:pushpin: 注記:**  トレース データが正しく収集されるためには、アプリケーションが正常に終了する必要があります。ハードウェアまたはソフトウェアが停止したり、Linux カーネルがクラッシュするなど、アプリケーションが正常に終了しなかった場合、トレース データが正しく収集されない可能性があります。  
 
-  5. View the trace data. After the application exits, all trace data is collected and displayed.
+  5. トレース データを確認します。アプリケーションが終了すると、すべてのトレース データが収集され、表示されます。
 
 </details>
 
 <details>
-<summary><strong>Step 6: Viewing Traces</strong></summary>
+<summary><strong>手順 6: トレースの表示</strong></summary>
 
-  1. After you have run the application and collected the trace data, an archive of the trace is created and stored in the build directory for that project in `<build_config>/_sds/trace`.  
-  2. To open this trace archive, right click on it and select Import and Open AXI Trace.  
-     The other files in the `_sds/trace folder are metadata and sdsoc_trace.tcl`. These files are produced during the build. They are used to extract the trace data and create the trace visualization archive. If you remove or change these files, you will not be able to collect the trace data and will need to perform a Clean and Build to regenerate them.  
+  1. アプリケーションを実行してトレース データを収集すると、トレースのアーカイブが作成され、プロジェクトのビルド ディレクトリ `<build_config>/_sds/trace` に保存されます。  
+  2. このトレース アーカイブを開くには、右クリックして [Import and Open AXI Trace] をクリックします。  
+     `_sds/trace` フォルダーには、`metadata` および `sdsoc_trace.tcl` も含まれます。これらのファイルはビルド中に生成され、トレース データを抽出し、トレース可視化アーカイブを作成するために使用されます。これらのファイルを削除または変更すると、トレース データを収集できなくなり、クリーンアップおよびビルドを実行して再生成する必要があります。  
 </details>
 
 

@@ -1,80 +1,80 @@
-
+﻿
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC 環境チュートリアル: 概要</h1>
 </th>
   </tr>
   <tr>
-    <td align="center"><a href="README.md">Introduction</a></td>
-    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
-    <td align="center"><a href="lab-2-performance-estimation.md">Lab 2: Performance Estimation</a></td>
-    <td align="center"><a href="lab-3-optimize-the-application-code.md">Lab 3: Optimize the Application Code</a></td>
-    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">Lab 4: Optimize the Accelerator Using Directives  </a></td>
+    <td align="center"><a href="README.md">概要</a></td>
+    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">演習 1: SDSoC 開発環境の概要</a></td>
+    <td align="center"><a href="lab-2-performance-estimation.md">演習 2: パフォーマンスの見積もり</a></td>
+    <td align="center"><a href="lab-3-optimize-the-application-code.md">演習 3: アプリケーション コードの最適化</a></td>
+    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">演習 4: 指示子を使用したアクセラレータの最適化  </a></td>
   </tr>
   <tr>
-    <td align="center"><a href="lab-5-task-level-pipelining.md">Lab 5: Task-Level Pipelining</a></td>
-    <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
-    <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
-    <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
-    <td align="center">Lab 9: Installing Examples from GitHub</td>
+    <td align="center"><a href="lab-5-task-level-pipelining.md">演習 5: タスク レベルのパイプライン</a></td>
+    <td align="center"><a href="lab-6-debug.md">演習 6: デバッグ</a></td>
+    <td align="center"><a href="lab-7-hardware-debug.md">演習 7: ハードウェア デバッグ</a></td>
+    <td align="center"><a href="lab-8-emulation.md">演習 8: エミュレーション</a></td>
+    <td align="center">演習 9: GitHub からのサンプルのインストール</td>
 </table>
 
-## Lab 9: Installing Examples from Github  
+##演習 9: GitHub からのサンプルのインストール  
 
-This tutorial demonstrates how to install examples that are available on Xilinx Github for the SDx environment.  
+このチュートリアルでは、ザイリンクス GitHub に含まれる SDx 環境の例をインストールする方法について説明します。  
 
-First, you install the provided example on Github using the SDx IDE. After the application is installed, you target your design to the desired OS and platform and select the newly installed example application for your design.  
+まず、SDx IDE を使用して GitHub の例をインストールします。アプリケーションをインストールしたら、デザインの OS およびプラットフォームを指定し、新しくインストールしたサンプル アプリケーションを選択します。  
 
->**:pushpin: NOTE**  You can complete this tutorial even if you do not have a ZC702 board. When creating the SDx project, select your board and one of the available applications, even if the suggested template Emulation application is not found.  
+>**:pushpin: 注記:**  このチュートリアルは、ZC702 ボードがなくても終了できます。SDx プロジェクトを作成する際は、推奨されているエミュレーション アプリケーションのテンプレートが見つからない場合でも、ボードと使用可能なテンプレートの 1 つを選択してください。  
 
 <details>
-<summary><strong>Step 1: Downloading and Installing an Example from the Github</strong></summary>  
+<summary><strong>手順 1: GitHub からの例のダウンロードおよびインストール</strong></summary>  
 
-  1. To download and install an example from the SDx Example store, click **Xilinx > SDx Examples**.  
+  1. SDx Example ストアから例をダウンロードしてインストールするには、[Xilinx] → [SDx Example] をクリックします。  
 
      ![](./images/gvu1517375349413.png)  
 
-  2. The SDx Examples dialog box opens up. Click the **Download** button as shown below.  
+  2. [SDx Example] ダイアログ ボックスが開きます。[Download] ボタンをクリックします。  
 
      ![](./images/wkd1517375349420.png)  
 
-  3. The examples are installed as shown below.  
+  3. 例は、次のようにインストールされます。  
 
      ![](./images/yea1517375349402.png)  
 
-  4. Click **OK** in the SDx Example Store Dialog box. The example is installed under  
-     `<install_area>/Xilinx/SDx/20xx.x/examples`.  
+  4. [SDx Example Store] ダイアログ ボックスで [OK] をクリックします。例は、  
+     `<install_area>/Xilinx/SDx/20xx.x/examples` にインストールされます。  
 
-  5. SDx Libraries can also be downloaded in the same fashion.  
-
-</details>
-
-<details>
-<summary><strong>Step 2: Creating a Project to Run the Example</strong></summary>
-
-  1. Select **File > New > SDx Project**.  
-  2. In the Project Type page, **Application Project** is selected by default. Click **Next**.  
-  3. Specify the name of the project (for example, lab9) in the Project name field. Click New.  
-  4. From the Platform list select zc702. Click **Next**.  
-  5. From the System Configuration drop-down list, select Linux. Click **Next**.  
-  6. From the list of application templates, select Array Partitioning and click **Finish**.  
-  7. Click on the tab labeled lab9 to select the SDx Project Settings (if the tab is not visible, double click the `project.sdx` file in the Project Explorer). In the HW functions panel observe that the matmul_partition_accel function is marked as a hardware function when the project was created.  
-  8. If the hardware functions were removed or not marked, click on the **Add HW Functions** icon to invoke the dialog box to specify hardware functions.  
-  9. Click the **Build** icon on the toolbar to build the project.      
+  5. SDx ライブラリも同じ方法でダウンロードできます。  
 
 </details>
 
 <details>
-<summary><strong>Step 3: Running the Application</strong></summary>
+<summary><strong>手順 2: 例を実行するプロジェクトの作成</strong></summary>
 
-  After the build finishes, you can run your application just as you would run any other example as described in the previous chapters.    
+  1. [File] → [New] → [SDx Project] をクリックします。  
+  2. [Project Type] ページでは、デフォルトで [Application Project] がオンになっています。[Next] をクリックします。  
+  3. [Project name] フィールドにプロジェクト名を指定します (例: lab9)。[New] をクリックします。  
+  4. [Platform] から [zc702] を選択します。[Next] をクリックします。  
+  5. [System Configuration] ドロップダウン リストから [Linux] を選択します。[Next] をクリックします。  
+  6. [Available Templates] から [Array Partitioning] を選択し、[Finish] をクリックします。  
+  7. [lab9] タブをクリックして SDx プロジェクト設定を選択します (タブが表示されていない場合は、[Project Explorer] で `project.sdx` ファイルをダブルクリックします)。[HW functions] パネルで、プロジェクトが作成されたときに matmul_partition_accel 関数がハードウェア関数としてマークされていることを確認します。  
+  8. ハードウェア関数が削除されていたり、マークされていない場合は、[Add HW Functions] アイコンをクリックして表示されたダイアログ ボックス内でハードウェア関数を指定します。  
+  9. ツールバーの [Build] アイコンをクリックしてプロジェクトをビルドします。      
+
 </details>
 
-### Summary  
-After completing this tutorial, you should be able to do the following:
+<details>
+<summary><strong>手順 3: アプリケーションの実行</strong></summary>
 
-  * Use the SDx IDE to download an example from the Xilinx Github and install it.  
-  * Run the example design on your target platform.  
+  ビルドが終わったら、前の章で説明したように、その他の例を実行する場合と同じ方法でアプリケーションを実行できるようになります。    
+</details>
+
+### まとめ  
+このチュートリアルを終了すると、次ができるようになります。
+
+  * SDx IDE を使用して、ザイリンクス GitHub から例をダウンロードしてインストールします。  
+  * ターゲット プラットフォームでデザイン例を実行します。  
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>

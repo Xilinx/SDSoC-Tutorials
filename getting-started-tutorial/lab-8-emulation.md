@@ -1,93 +1,93 @@
-<table style="width:100%">
+﻿<table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC 環境チュートリアル: 概要</h1>
 </th>
   </tr>
   <tr>
-    <td align="center"><a href="README.md">Introduction</a></td>
-    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
-    <td align="center"><a href="lab-2-performance-estimation.md">Lab 2: Performance Estimation</a></td>
-    <td align="center"><a href="lab-3-optimize-the-application-code.md">Lab 3: Optimize the Application Code</a></td>
-    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">Lab 4: Optimize the Accelerator Using Directives</a></td>
+    <td align="center"><a href="README.md">概要</a></td>
+    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">演習 1: SDSoC 開発環境の概要</a></td>
+    <td align="center"><a href="lab-2-performance-estimation.md">演習 2: パフォーマンスの見積もり</a></td>
+    <td align="center"><a href="lab-3-optimize-the-application-code.md">演習 3: アプリケーション コードの最適化</a></td>
+    <td align="center"><a href="lab-4-optimize-the-accelerator-using-directives.md">演習 4: 指示子を使用したアクセラレータの最適化</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="lab-5-task-level-pipelining.md">Lab 5: Task-Level Pipelining</a></td>
-    <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
-    <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
-    <td align="center">Lab 8: Emulation</td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
+    <td align="center"><a href="lab-5-task-level-pipelining.md">演習 5: タスク レベルのパイプライン</a></td>
+    <td align="center"><a href="lab-6-debug.md">演習 6: デバッグ</a></td>
+    <td align="center"><a href="lab-7-hardware-debug.md">演習 7: ハードウェア デバッグ</a></td>
+    <td align="center">演習 8: エミュレーション</td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">演習 9: GitHub からのサンプルのインストール</a></td>
 </table>
 
-## Lab 8: Emulation  
+##演習 8: エミュレーション  
 
-This tutorial demonstrates how to use the emulation feature in the SDx IDE. Running your application on SDSoC emulator is a good way to gain visibility of data transfers with a debugger. You will be able to see issues such as a system hang, and can then inspect associated data transfers in the simulation waveform view, which gives you access to singals on the hardware blocks associated with the data transfer.  
+このチュートリアルでは、SDx IDE でエミュレーション機能を使用する方法を示します。デバッガーを使用してデータ転送を可視化するには、SDSoC エミュレーターでアプリケーションを実行することをお勧めします。これにより、システム停止などの問題がわかるので、シミュレーション波形ビューで関連するデータ転送を調べて、そのデータ転送に関連するハードウェア ブロックの信号にアクセスできます。  
 
-First, you target your design to the desired OS and platform and run emulation on the program. In this tutorial you are debugging applications running on an accelerated system.  
+まず、デザインの OS とプラットフォームを指定し、プログラムでエミュレーションを実行します。このチュートリアルでは、アクセラレーションされたシステムで実行しているアプリケーションをデバッグします。  
 
-**:pushpin: NOTE**  You can complete this tutorial even if you do not have a ZC702 board. When creating the SDx project, select your board and one of the available applications, even if the suggested template Emulation application is not found.  
+**:pushpin: 注記:**  このチュートリアルは、ZC702 ボードがなくても終了できます。SDx プロジェクトを作成する際は、推奨されているエミュレーション アプリケーションのテンプレートが見つからない場合でも、ボードと使用可能なテンプレートの 1 つを選択してください。  
 
 <details>
-<summary><strong>Step 1: Creating a Project to Run Emulation</strong></summary>  
+<summary><strong>手順 1: エミュレーションを実行するプロジェクトの作成</strong></summary>  
 
-Create a new SDx project (`lab8`) for the ZC702 platform and Linux OS using the design template for Emulation Example. To create the project in the SDx IDE:  
+[Emulation Example] デザイン テンプレートを使用して ZC702 プラットフォームおよび Linux OS の新しい SDx プロジェクト (`lab8`) を作成します。SDx IDE でプロジェクトを作成する手順は、次のとおりです。  
 
-  1. Launch the SDx IDE.  
-  2. Select **File > New > SDx Project**.  
-  3. In the Project Type page, **Application Project** is selected by default. Click **Next**.  
-  4. Specify the name of the project (for example, `lab8`) in the Project name field. Click **Next**.  
-  5. From the Platform list select zc702. Click **Next**.  
-  6. From the System Configuration drop-down list, select **Linux**. Click **Next**.  
-  7. From the list of application templates, select **Emulation Example** and click **Finish**.  
-  8. Click on the tab labeled **lab8** to select the SDx Project Settings (if the tab is not visible, double click the `project.sdx` file in the Project Explorer). In the HW functions panel observe that the mmult_accel function is marked as a hardware function when the project was created.  
-  9. If the hardware functions were removed or not marked, you would click on the Add HW Functions icon to invoke the dialog box to specify hardware functions.  
-  10. In the SDx Project Settings, from the pull-down menu for the **Active build configuration**, select **Debug**, from the pull-down menu for **Target**, select **Emulation**. For the Emulation model there are two options: Debug and Optimized. Select the Debug option to enable capture of debug information. For faster emulation without debug information, select the Optimized pull-down menu option. For this lab, use the default option of Debug.  
-  11. When you select the **Target** as **Emulation**, the **Generate SD card image** is greyed out.  
+  1. SDx IDE が起動します。  
+  2. [File] → [New] → [SDx Project] をクリックします。  
+  3. [Project Type] ページでは、デフォルトで [Application Project] がオンになっています。[Next] をクリックします。  
+  4. [Project name] フィールドにプロジェクト名を指定します (例: `lab8`)。[Next] をクリックします。  
+  5. [Platform] から [zc702] を選択します。[Next] をクリックします。  
+  6. [System Configuration] ドロップダウン リストから [Linux] を選択します。[Next] をクリックします。  
+  7. [Available Templates] から [Emulation Example] を選択し、[Finish] をクリックします。  
+  8. [lab8] タブをクリックして SDx プロジェクト設定を選択します (タブが表示されていない場合は、[Project Explorer] で `project.sdx` ファイルをダブルクリックします)。[HW functions] パネルで、プロジェクトが作成されたときに mmult_accel 関数がハードウェア関数としてマークされていることを確認します。  
+  9. ハードウェア関数が削除されていたり、マークされていない場合は、[Add HW Functions] アイコンをクリックして表示されたダイアログ ボックス内でハードウェア関数を指定します。  
+  10. [SDx Project Settings] の [Active build configuration] プルダウン メニューから [Debug] を、[Target] プルダウン メニューから [Emulation] を選択します。[Emulation] モデルには、[Debug] と [Optimized] の 2 つのオプションがあります。[Debug] オプションを選択して、デバッグ情報のキャプチャを有効にします。デバッグ情報なしにしてエミュレーションを速めるには、[Optimized] プルダウン メニューの方を選択します。この演習では、デフォルト オプションの [Debug] を使用します。  
+  11. [Target] に [Emulation] を選択すると、[Generate SD card image] は淡色表示になります。  
 
       ![](./images/fpd1527885363339.png)  
 
-  12. With the **Generate emulation model** option selected, build the application by clicking on the build symbol.  
+  12. [Generate emulation model] オプションをオンにしたまま、ビルド シンボルをクリックしてアプリケーションを構築します。  
 
 </details>
 
 <details>
-<summary><strong>Step 2: Starting the Emulator</strong></summary>
+<summary><strong>手順 2: エミュレーターの開始</strong></summary>
 
-  1. From the menu select **Xilinx > Start/Stop Emulator**.  
-  2. The Emulation dialog box appears. Select the appropriate Project and Configuration.  
+  1. [Xilinx] → [Start/Stop Emulator] をクリックします。  
+  2. [Emulation] ダイアログ ボックスが開きます。プロジェクトと設定を選択します。  
 
      ![](./images/hra1517374817424.png)  
 
-  3. Select whether or not you want to show the waveform. Showing the waveform initiates a Vivado tools session with the simulation window open where you can view the waveform of the different signals within your design. Not showing the waveform results in faster emulation. Check the **Show the Waveform** option.  
-  4. Click **Start**. This is equivalent to turning a board on.  
-  5. Add the signals that need to be viewed in the Waveform viewer. This can be done by selecting the appropriate functions in the **Scope** window in Vivado, right-clicking and selecting **Add to Wave Window**. The signals within that function are then added to the waveform viewer.  
+  3. 波形を表示するかどうかを選択します。波形を表示するようにすると、Vivado ツール セッションが開始されてシミュレーション ウィンドウが表示され、デザイン内のさまざまな信号の波形を確認できます。波形を表示しないようにするとエミュレーションが速く実行されます。[Show the Waveform] オプションをオンにします。  
+  4. [Start] をクリックします。これは、ボードをオンにしたのと同じことです。  
+  5. 波形ビューアーで表示する必要のある信号を追加します。これには、Vivado の [Scope] ウィンドウで関数を選択し、右クリックで [Add to Wave Window] をクリックします。その関数内の信号が波形ビューアーに追加されます。  
 
      ![](./images/wnf1527886268336.png)  
 
-  6. Click on the **Run All** or **Run for** button to start the programmable logic simulation after selecting your signals.  
+  6. 信号を選択したら、[Run All] または [Run for] ボタンクリックして、プログラマブル ロジック シミュレーションを開始します。  
 
 </details>
 
 <details>
-<summary><strong>Step 3: Running the Application</strong></summary>
+<summary><strong>手順 3: アプリケーションの実行</strong></summary>
 
-The emulator will take a few seconds to start. To begin emulation:  
+エミュレーターは、開始されるまで数秒かかります。エミュレーションの開始方法:  
 
-  1. In the SDx IDE, right-click on `lab8` and from the context menu that appears, select **Debug As > Launch on Emulator (SDx Application Debugger)**.  
+  1. SDx IDE で [lab8] を右クリックして [Debug As] → [Launch on Emulator (SDx Application Debugger)] をクリックします。  
 
      ![](./images/kip1517375349372.png)  
 
-  2. The Confirm Perspective Switch dialog box appears. Click **Yes** to switch perspective.  
-  3. After the perspective is switched to Debug, you can debug your code just like you would while running on actual hardware.  
-  4. Click on the **Resume** icon in the toolbar to execute the code.  
-  5. Look at the state of different signals in the waveform viewer of the Vivado Xsim simulator.
+  2. [Confirm Perspective Switch] ダイアログ ボックスが表示されます。[Yes] をクリックしてパースペクティブを切り替えます。  
+  3. パースペクティブを [Debug] に切り替えると、コードを実際のハードウェアで実行しつつデバッグできます。  
+  4. ツールバーの [Resume] アイコンクをクリックしてコードを実行します。  
+  5. Vivado XSim シミュレータの波形ビューアーには、さまざまな信号のステートが表示されます。
 
 </details>
 
-### Summary  
-After completing this tutorial, you should be able to do the following:
+### まとめ  
+このチュートリアルを終了すると、次ができるようになります。
 
-  * Use the SDx IDE to download and run your application in emulation mode.  
-  * Optionally step through your source code in the SDx IDE (debug mode) and observe various registers and memories.  
+  * SDx IDE を使用して、エミュレーション モードでアプリケーションをダウンロードして実行。  
+  * オプションで SDx IDE でソース コードをステップ スルーして、さまざまなレジスタおよびメモリを確認。  
 
 <hr/>
 <p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
