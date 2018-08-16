@@ -1,56 +1,56 @@
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC 環境チュートリアル: 概要</h1>
+    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
 </th>
   </tr>
   <tr>
-    <td align="center"><a href="README.md">概要</a></td>
-    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">演習 1: SDSoC 開発環境の概要</a></td>
-    <td align="center"><a href="lab-2-performance-estimation.md">演習 2: パフォーマンスの見積もり</a></td>
-    <td align="center"><a href="lab-3-optimize-the-application-code.md">演習 3: アプリケーション コードの最適化</a></td>
-    <td align="center">演習 4: 指示子を使用したアクセラレータの最適化</td>
+    <td align="center"><a href="README.md">Introduction</a></td>
+    <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
+    <td align="center"><a href="lab-2-performance-estimation.md">Lab 2: Performance Estimation</a></td>
+    <td align="center"><a href="lab-3-optimize-the-application-code.md">Lab 3: Optimize the Application Code</a></td>
+    <td align="center">Lab 4: Optimize the Accelerator Using Directives</td>
   </tr>
   <tr>
-    <td align="center"><a href="lab-5-task-level-pipelining.md">演習 5: タスク レベルのパイプライン</a></td>
-    <td align="center"><a href="lab-6-debug.md">演習 6: デバッグ</a></td>
-    <td align="center"><a href="lab-7-hardware-debug.md">演習 7: ハードウェア デバッグ</a></td>
-    <td align="center"><a href="lab-8-emulation.md">演習 8: エミュレーション</a></td>
-    <td align="center"><a href="lab-9-installing-applications-from-github.md">演習 9: GitHub からのサンプルのインストール</a></td>
+    <td align="center"><a href="lab-5-task-level-pipelining.md">Lab 5: Task-Level Pipelining</a></td>
+    <td align="center"><a href="lab-6-debug.md">Lab 6: Debug</a></td>
+    <td align="center"><a href="lab-7-hardware-debug.md">Lab 7: Hardware Debug</a></td>
+    <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
+    <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
 </table>
 
-##演習 4: 指示子を使用したアクセラレータの最適化  
+## Lab 4: Optimize the Accelerator Using Directives  
 
-この演習では、プロジェクト内のソースを変更して、生成したハードウェアのパフォーマンスへの Vivado HLS プラグマの影響について確認します。このトピックの詳細は、『SDSoC 環境プロファイルおよび最適 ガイド』 ([UG1235](https://japan.xilinx.com/cgi-bin/docs/rdoc?v=2018.2;d=ug1235-sdsoc-optimization-guide.pdf)) を参照してください。  
+In this exercise, you modify the source file in the project to observe the effects of Vivado HLS pragmas on the performance of generated hardware. See the SDSoC Environment Profiling and Optimization Guide ([UG1235](https://www.xilinx.com/cgi-bin/docs/rdoc?v=2018.2;d=ug1235-sdsoc-optimization-guide.pdf)) for more information on this topic.  
 
-  1. [Matrix Multiplication and Addition] デザイン テンプレートを使用して、[ZC702 Platform] および [Linux] システム コンフィギュレーションで新しい SDx™ 環境プロジェクト (lab4) を作成します。  
+  1. Create a new project in the SDx™ environment (lab4) for the ZC702 Platform and Linux System Configuration using the design template for Matrix Multiplication and Addition.  
 
-  2. [lab4] タブをクリックして [SDx Project Settings] を開きます。タブが表示されていない場合は、[Project Explorer] タブの [lab4] プロジェクトの下の `project.sdx` ファイルをダブルクリックします。  
+  2. Click on the tab labeled **lab4** to view the SDx Project Settings. If the tab is not visible, in the Project Explorer double click on the `project.sdx` file under the lab4 project.  
 
-  3. [HW functions] パネルには、`madd` および `mmult` 関数がハードウェア アクセラレーション用にマークされた関数のリストに表示されます。
+  3. In the HW Functions panel, observe that the `madd` and `mmult` functions already appear in the list of functions marked for hardware acceleration.
 
-  4. 最高のランタイム パフォーマンスにするには、[Active Build Configuration] オプションをクリックして [Release] を選択して [Release] コンフィギュレーションに切り替えます。または、[Build] アイコンから [Release] を選択するか、プロジェクトを右クリックして [Build Configuration] → [Set Active] → [Release] をクリックします。[Release] ビルド コンフィギュレーションでは、[Debug] ビルド コンフィギュレーションよりも高いコンパイラ最適化設定が使用されます。  
+  4. To get the best runtime performance, switch to use the Release configuration by clicking on the Active Build Configuration option and then selecting **Release**. You could also select Release from the Build icon, or by right-clicking the project and selecting **Build Configuration > Set Active > Release**. The Release build configuration uses a higher compiler optimization setting than the Debug build configurations.  
 
-  5. [Project Explorer] タブで `src` フォルダー下の `mmult.cpp` をダブルクリックして、ソース エディター ビューを開きます。  
+  5. Double click the `mmult.cp`p under the `src` folder in the Project Explorer view to bring up the source editor view.  
 
-  6. `HLS pipeline` および `HLS array_partition` プラグマが記述されている行を見つけます。
+  6. Find the lines where the pragmas `HLS pipeline` and `HLS array_partition` are located.
 
-  7. これらのプラグマの行をコメントアウトします。  
+  7. Remove these pragmas by commenting out the lines.  
 
      ![](./images/hez1517375659010.png)  
 
-  8. ファイルを保存します。  
+  8. Save the file.  
 
-  9. プロジェクトの最上位フォルダーを右クリックして、[Build Project] をクリックします。
+  9. Right click the top-level folder for the project and click Build Project in the menu.
 
-  10. ビルドが終了したら、`lab4/Release/sd_card` の内容を SD カードにコピーします。  
+  10. After the build completes, copy the contents of `lab4/Release/sd_card` to an SD card.  
 
-  11. SD カードを ZC702 ボードに挿入し、ボードに電源を投入します。  
+  11. Insert the SD card into the ZC702 board and power on the board.  
 
-  12. SDx IDE の [Terminal] タブのシリアル ターミナルからボードに接続します。**+** アイコンをクリックして設定を開きます。  
+  12. Connect to the board from a serial terminal in the SDx Terminal tab of the SDx IDE. Click the **+** icon to open the settings.  
 
-  13. ボードが起動したら、Linux プロンプトでアプリケーションを実行します。`/mnt/lab4.elf` と入力します。  
+  13. After the board boots up, you can execute the application at the Linux prompt. Type `/mnt/lab4.elf`.  
 
-プラグマがコメントアウトされていたときのパフォーマンスと比較すると (lab1 の結果と比較すると)、`array_partition` プラグマにより配列の要素を並列に読み出せるようになったので、内部ループのメモリ帯域幅が増加したことがわかります。pipeline プラグマでは、ループのパイプライン処理が実行され、ループの複数の反復が並列に実行されるようなったことがわかります。  
+Observe the performance and compare it with the performance achieved with the commented out pragmas present (compare it with the results of lab1). Note that the `array_partition` pragmas increase the memory bandwidth for the inner loop by allowing array elements to be read in parallel. The pipeline pragma on the other hand performs pipelining of the loop and allows multiple iterations of a loop to run in parallel.  
 
 ![](./images/vsk1527633076891.png)
 
