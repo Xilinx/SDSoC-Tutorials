@@ -183,7 +183,7 @@ Concat Block (PL)
 
     Alternatively, you can click the Add IP button (**+**) on the IP integrator canvas.
 
-    ![](/images/image13.png)
+    ![](./images/image13.png)
 
 2. The IP catalog **Search** dialog box appears. In the Search field, type **zynq** to find the ZYNQ7 Processing System IP.
 
@@ -529,20 +529,22 @@ You can now generate the HDL files for the design.
 
     ![](./images/image42.png)
 
-4. Create an top-level HDL wrapper for the IP integrator block design.
-
-5. Right-click on **zynq7_board.bd** in Sources window and click on **Create HDL Wrapper**.
+4. Right-click on **zynq7_board.bd** in Sources window and click on **Create HDL Wrapper**  to create a top-level HDL wrapper for the IP integrator block design.
 
    ![](./images/image43.png)
 
-6. Click **OK**.
+5. Click **OK**.
 
     ![](./images/image44.png)
 
-7. In the Flow Navigator, click **Generate Bitstream**.
+6. In the Flow Navigator, click **Generate Bitstream**.
+
+7. Click **File > Export > Export Hardware**.
+
+8. Select the **Include Bitstream** checkbox.
 
 
-> You now have a Zynq-7000 SoC bitstream that includes a hardware design without any SDSoC accelerators. This bitstream can be used as a check of hardware functionality prior to running the design through the SDx IDE to generate hardware accelerators.
+> You now have a Zynq-7000 SoC bitstream that includes a hardware design without any SDSoC accelerators. This bitstream can be used as a check of hardware functionality before running the design through the SDx IDE to generate hardware accelerators.
 </details>
 
 <details>

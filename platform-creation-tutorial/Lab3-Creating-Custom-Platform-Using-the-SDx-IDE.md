@@ -17,9 +17,9 @@
 </div>
 
 
-## Lab 3: Creating a Custom Platform Using the SDx IDE
+## Lab 3: Creating a Custom Platform Using the SDx&trade; IDE
 
-<details><summary><big><strong>Step 1: Invoking the SDx&trade; IDE and Creating a Platform Project</strong></big></summary>
+<details><summary><big><strong>Step 1: Invoking the SDx IDE and Creating a Platform Project</strong></big></summary>
 
 #### On a Linux host machine:
 
@@ -60,21 +60,21 @@ For a Windows host machine, use one of the following methods to launch Vivado&re
 
    As an alternative, the SDx IDE menu selection **File \> New \> SDx Project** can be used.
 
-1.  Select **Platform** on the Project Type dialog.
+1. Select **Platform** on the Project Type dialog.
 
    ![](./images/image70.png)
 
-    We will create an SDSoC&trade; platform and populate it with the hardware and software components we created in the earlier labs.
+   You will create an SDSoC&trade; platform and populate it with the hardware and software components created in the earlier labs.
 
-2. Click **Next**.
+1. Click **Next**.
 
-3.  On the Platform Specification dialog.
+1.  On the Platform Specification dialog.
 
     1. Click **Browse** to select **/tmp/sdx\_workspace/zynq7\_board.dsa** for the Hardware specification file.
 
     1. Leave the default to select Import software platform components.
 
-4. Click **Finish**.
+1. Click **Finish**.
 
    ![](./images/image71.png)
 </details>

@@ -9,6 +9,7 @@
     <td width="17%" align="center">Overview</a></td>
     <td width="16%" align="center"><a href="./getting-started-tutorial/README.md">SDSoC Environment Tutorial: Introduction</a></td>
     <td width="17%" align="center"><a href="./platform-creation-tutorial/README.md">SDSoC Environment Tutorial: Platform Creation </a></td>
+    <td width="17%" align="center"><a href="./opencv-to-xfopencv-migration-tutorial/README.md">SDSoC Environment Tutorial: Migrate OpenCV to xfOpenCV</a></td>	
   </tr>
 </table>
 
@@ -23,3 +24,4 @@ The SDSoC environment 2018.2 release includes support for the ZC702, ZC706, and 
 ## Related information
  - <a href="./getting-started-tutorial/README.md">SDSoC Environment Tutorial: Introduction</a>
  - <a href="./platform-creation-tutorial/README.md">SDSoC Environment Tutorial: Platform Creation </a>
+ - <a href="./opencv-to-xfopencv-migration-tutorial/README.md">SDSoC Environment Tutorial: Migrate OpenCV to xfOpenCV</a>
