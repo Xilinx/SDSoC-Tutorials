@@ -20,7 +20,7 @@ xfOpenCV is hardware-accelerated OpenCV functions optimized for Xilinx SoCs and 
 The major difference between OpenCV and xfOpenCV is that typical OpenCV is written for and run on CPUs (x86, Arm, etc), whereas xfOpenCV is written and optimized for running on Xilinx SoCs and FPGAs. By optimizing for SoCs and FPGAs the code is up to 40x faster than embedded GPUs and 100x faster than CPUs. Since all the code is written in C/C++ it is easier to customize to your own computer vision functions.
 
 **:pushpin: NOTE**
-**This tutorial assumes you are already familiar with OpenCV and the reVISION platform as described at [reVISION Getting Started Guide](https://github.com/Xilinx/Revision-Getting-Started-Guide/blob/master/software-tools-system-requirements.md). You may want to review this information before proceeding.**
+**This tutorial assumes you are already familiar with OpenCV and the reVISION platform as described at [reVISION Getting Started Guide](https://github.com/Xilinx/reVISION-Getting-Started-Guide/blob/master/Docs/software-tools-system-requirements.md). You may want to review this information before proceeding.**
 
 ## Revision History
 This is the initial release of the tutorial.
