@@ -1,15 +1,23 @@
+<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
 
-<table>
+<table style="width:100%">
   <tr>
-<th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Platform Creation Labs</h1>
-</th>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDSoC™ Development Environment Tutorials</h1>
+<a href="https://github.com/Xilinx/SDSoC-Tutorials/branches/all">See other versions</a>
+</td>
+
   </tr>
   <tr>
-    <td width="17%" align="center"><a href="README.md">Introduction</a></td>
-    <td width="16%" align="center">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</td>
-    <td width="17%" align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
-    <td width="15%" align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+    <td colspan="4" align="center"><h2>Platform Creation Labs</h2></td>
   </tr>
+  <tr>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Introduction</a></td>
+     <td align="center">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</td>
+     <td align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
+     <td align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+   </tr>
 </table>
 
 ## Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design  

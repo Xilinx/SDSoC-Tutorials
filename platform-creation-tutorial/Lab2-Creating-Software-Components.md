@@ -1,21 +1,24 @@
-<div style="page-break-after: always;"></div>
-<div style="display: none;" media="print">
+﻿<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
+
 <table style="width:100%">
   <tr>
-
-<th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Platform Creation Labs</h2>
-</th>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDSoC™ Development Environment Tutorials</h1>
+<a href="https://github.com/Xilinx/SDSoC-Tutorials/branches/all">See other versions</a>
+</td>
 
   </tr>
   <tr>
-    <td width="17%" align="center"><a href="README.md">Introduction</a></td>
-    <td width="16%" align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
-    <td width="17%" align="center">Lab 2: Creating the SDSoC Platform</td>
-    <td width="17%" align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+    <td colspan="4" align="center"><h2>Platform Creation Labs</h2></td>
   </tr>
+  <tr>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Introduction</a></td>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
+     <td align="center">Lab 2: Creating the SDSoC Platform</td>
+     <td align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+   </tr>
 </table>
-</div>
-
 
 ## Lab 2: Creating the SDSoC Platform  
 In Lab 1 you created the hardware component of the SDSoC platform: the DSA file which contains the framework for the Zynq UltraScale+ MPSoC hardware design. In this lab, you will create an SDSoC platform project to define the **zcu102_board** platform, while also generating the elements of the software for a standalone (or baremetal) operating system. The required software components are:
@@ -140,7 +143,7 @@ At this point, you will edit the platform project to add new configurations and 
    ![](./images/image53b.png)
 
 4. Select the **standalone on psu_cortexa53_0** domain in the tree view, as displayed in the image above. This view is where you would specify the
-board support package, the application linker script, and included libraries. You will not make any changes to the selections on this page. Just examine the fields, and refer to the *SDSoC Environment Platform Development Guide* ([UG1146](https://www.xilinx.com/support/documentation/user_guides/ug1146-sdsoc-platform-development.pdf)) for more information. 
+board support package, the application linker script, and included libraries. You will not make any changes to the selections on this page. Just examine the fields, and refer to the *SDSoC Environment Platform Development Guide* ([UG1146](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1146-sdsoc-platform-development.pdf)) for more information. 
 
 You have just completed the first system configuration that was automatically defined from your choices when you set up the SDSoC platform project. However, in this tutorial, you will also be defining a second system configuration for the Linux operating system. This way, your custom platform can be used in standalone applications, or in Linux based applications. 
 
@@ -191,7 +194,7 @@ You have just completed the first system configuration that was automatically de
 
 In completing Lab 2, you used the DSA file you created in the Vivado Design Suite in Lab 1 and brought it into a Platform Project in the SDx environment. Using the SDx IDE, you specified a Standalone system configuration and a Linux system configuration for your platform. With the details of the platform specified, you generated the actual platform files for use in SDSoC application projects. In Lab 3 you will use the platform you have created. 
 ## Related information
- - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
+ - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab 1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
  - <a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a>
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
