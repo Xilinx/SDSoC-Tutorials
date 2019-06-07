@@ -1,41 +1,44 @@
-<div style="page-break-after: always;"></div>
-<div style="display: none;" media="print">
+﻿<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
+
 <table style="width:100%">
   <tr>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDSoC™ Development Environment Tutorials</h1>
+<a href="https://github.com/Xilinx/SDSoC-Tutorials/branches/all">See other versions</a>
+</td>
 
-<th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Platform Creation Labs</h2>
-</th>
-
-</tr>
-  <tr>
-    <td width="17%" align="center"><a href="README.md">Introduction</a></td>
-    <td width="16%" align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
-    <td width="17%" align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
-    <td width="17%" align="center">Lab 3:Using Your Custom Platform</td>
   </tr>
+  <tr>
+    <td colspan="4" align="center"><h2>Platform Creation Labs</h2></td>
+  </tr>
+  <tr>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Introduction</a></td>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
+     <td align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
+     <td align="center">Lab 3: Using Your Custom Platform</td>
+   </tr>
 </table>
-</div>
-
 
 ## Lab 3: Using Your Custom Platform
 
 1.  On the SDx IDE menu, select **File \> New \> SDx Application Project** to begin creating a new Application project.
 
-1.  In the Create a New SDx Application Project dialog, type **sdx\_app1** as the Project name.
+2.  In the Create a New SDx Application Project dialog, type **sdx\_app1** as the Project name.
 
-1.  Click **Next**.
+3.  Click **Next**.
 
     ![](./images/image82.png)
 
-1.  In the Platform dialog, select **Add Custom Platform** command (the '+' icon).
+4.  In the Platform dialog, select **Add Custom Platform** command (the '+' icon).
 
     This opens the Specify Custom Platform Location dialog box, letting you navigate to the platform folder. If you were following the instructions in this tutorial, you will find the platform at /tmp/sdx_workspace/zcu102_board/export/zcu102_board.
 
     ![](./images/image79.png)
 
-1. After adding the **zcu102_board** platform, select it in the Platform dialog box, and click **Next**. 
+5. After adding the **zcu102_board** platform, select it in the Platform dialog box, and click **Next**. 
 
-1.  Accept the default settings in the System Configuration dialog box:
+6.  Accept the default settings in the System Configuration dialog box:
 
     - System configuration: **sysconfig1**
     - Runtime: **C/C++**
@@ -45,13 +48,13 @@
 
     ![](./images/image80.png)
     To generate a Linux application, the LinuxConfig system can be selected.
-1. Click **Next**.
+7. Click **Next**.
 
-1.  On the Templates dialog, select **Array Partitioning** and click **Finish**.
+8.  On the Templates dialog, select **Array Partitioning** and click **Finish**.
 
     ![](./images/image85.png)
 
-    **Note:** To get or update the example applications, you can click click the **SDx Examples** button. Refer to the *SDSoC Develpment Environment User Guide* (UG1027) for more information. 
+    **Note:** To get or update the example applications, you can click click the **SDx Examples** button. Refer to the *SDSoC Develpment Environment User Guide* ([UG1027](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1027-sdsoc-user-guide.pdf)) for more information. 
 
    The newly created SDSoC application `sdx_app1` is shown in the Project Explorer view and the Assistant view.
 
@@ -91,7 +94,7 @@ In completing Lab 3, you have successfully created a custom SDSoC platform that 
 ### End Tutorial
 
 ## Related information
- - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
+ - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab 1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
  - <a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a>
 <hr/>
 <p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>

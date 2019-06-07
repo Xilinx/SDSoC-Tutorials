@@ -1,8 +1,15 @@
+<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
+
 <table style="width:100%">
   <tr>
-    <th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Environment Tutorial: Introduction</h1>
-</th>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDSoC™ Development Environment Tutorials</h1>
+<a href="https://github.com/Xilinx/SDSoC-Tutorials/branches/all">See other versions</a>
+</td>
   </tr>
+  <tr>
+    <td colspan="5" align="center"><h2>Introduction</h2></td>
   <tr>
     <td align="center"><a href="README.md">Introduction</a></td>
     <td align="center"><a href="lab-1-introduction-to-the-sdsoc-development-environment.md">Lab 1: Introduction to the SDSoC Development Environment</a></td>
@@ -16,6 +23,7 @@
     <td align="center">Lab 7: Hardware Debug</td>
     <td align="center"><a href="lab-8-emulation.md">Lab 8: Emulation</a></td>
     <td align="center"><a href="lab-9-installing-applications-from-github.md">Lab 9: Installing Examples from GitHub</a></td>
+    </tr>
 </table>
 
 ## Lab 7: Hardware Debug  
@@ -179,4 +187,4 @@ You can learn how to create a new project, configure the project to enable the S
 
 
 <hr/>
-<p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
+<p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>

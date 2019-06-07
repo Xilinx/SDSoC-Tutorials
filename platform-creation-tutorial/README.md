@@ -1,21 +1,24 @@
+<p align="right">
+<a>English</a> | <a href="/docs-jp/platform-creation-tutorial/README.md">日本語</a>
+</p>
 
-<div style="page-break-after: always;"></div>
-<div style="display: none;" media="print">
 <table style="width:100%">
   <tr>
-
-<th width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>SDSoC Platform Creation Labs</h2>
-</th>
+<td align="center" width="100%" colspan="6"><img src="https://www.xilinx.com/content/dam/xilinx/imgs/press/media-kits/corporate/xilinx-logo.png" width="30%"/><h1>2018.3 SDSoC™ Development Environment Tutorials</h1>
+<a href="https://github.com/Xilinx/SDSoC-Tutorials/branches/all">See other versions</a>
+</td>
 
   </tr>
   <tr>
-    <td width="17%" align="center">Introduction</a></td>
-    <td width="16%" align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
-    <td width="17%" align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
-    <td width="17%" align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+    <td colspan="4" align="center"><h2>Platform Creation Labs</h2></td>
   </tr>
+  <tr>
+     <td align="center">Introduction</td>
+     <td align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
+     <td align="center"><a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a></td>
+     <td align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+   </tr>
 </table>
-</div>
 
 ## Introduction
 
@@ -48,8 +51,7 @@ Zynq-based platforms can utilize the PS Arm processor cores, the integrated PS I
 
 For more information on the SDSoC environment, see the *SDSoC Environment User Guide* ([UG1027](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1027-sdsoc-user-guide.pdf)) and the *SDSoC Environment Platform Development Guide* ([UG1146](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1146-sdsoc-platform-development.pdf)).
 
-<details>
-<summary><big><strong>Hardware and Software Requirements</strong></big></summary>
+## Hardware and Software Requirements
 
 This tutorial requires that you have the 2018.3 SDx tools installed. See the *SDSoC Development Environment: Release Notes, Installation, and Licensing Guide* [UG1294](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1294-sdsoc-rnil.pdf) for installation instructions, release notes, and licensing. All SDx environments include the Vivado Design Suite for programming the target devices and for developing custom hardware platforms. Although all the build steps can be accomplished without a target board, a ZCU102 board is required for testing on hardware.
 
@@ -71,12 +73,10 @@ The following is a list of minimum software and hardware requirements for this t
 
           - See [XTP426](https://www.xilinx.com/support/documentation/boards_and_kits/install/ug1033-cp210x-usb-uart-install.pdf), the Silicon Labs CP210x USB-to-UART Installation Guide.
 
-</details>
-
 ## Related information
- - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
+ - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab 1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
  - <a href="Lab2-Creating-Software-Components.md">Lab 2: Creating the SDSoC Platform</a>
  - <a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a>
 
 <hr/>
-<p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
+<p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
