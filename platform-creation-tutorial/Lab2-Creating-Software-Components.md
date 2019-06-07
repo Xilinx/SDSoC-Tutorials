@@ -9,28 +9,28 @@
   </tr>
   <tr>
     <td width="17%" align="center"><a href="README.md">Introduction</a></td>
-    <td width="16%" align="center"><a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a></td>
-    <td width="17%" align="center">Lab 2: Creating the SDSoC Platform</td>
-    <td width="17%" align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a></td>
+    <td width="16%" align="center"><a href="Lab1-Creating-DSA-for-Zynq-7000-SoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq-7000 SoC Processor Design</a></td>
+    <td width="17%" align="center">Lab 2: Creating Software Components for the Platform</td>
+    <td width="17%" align="center"><a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Creating a Custom Platform Using the SDx IDE</a></td>
   </tr>
 </table>
 </div>
 
 
-## Lab 2: Creating the SDSoC Platform  
-In Lab 1 you created the hardware component of the SDSoC platform: the DSA file which contains the framework for the Zynq UltraScale+ MPSoC hardware design. In this lab, you will create an SDSoC platform project to define the **zcu102_board** platform, while also generating the elements of the software for a standalone (or baremetal) operating system. The required software components are:
+## Lab 2: Creating Software Components for the Platform  
+In this lab, we will create the files used to define the software components of an SDSoC&trade; platform for a standalone target. The software components created are:
 
--  **First Stage Boot Loader (FSBL)**:  The FSBL initializes the processor (PS) block, configures the programmable logic (PL) with a bitstream if needed, and loads either a second stage boot loader, or loads an application as specified in the boot file.
+-  **First Stage Boot Loader (FSBL)**:  The FSBL initializes the PS block, configures the PL with a bitstream if needed, and loads either a second stage bootloader or the end application as specified in the boot file
 
-- **Linker Script**: The linker script specifies the memory address space used for the code and data regions present within the executable software application file. The executable file is formatted in the executable and linkable format (ELF). The stack and heap sizes are also specified within the linker script.
+- **Linker Script**: The linker script specifies the memory address space used for the code and data regions present within the executable software application file. The executable file is formatted in the executable and linkable format (ELF). The stack and heap sizes are also specified within the linker script
 
-- **Boot Image Format (BIF) File**: The BIF file specifies how the Zynq&reg; UltraScale MPSoC boot file (BOOT.BIN) is constructed. The boot file contains the FSBL and the executable application ELF file. It can also contain a bitstream as well as additional program and data files.
+- **Boot Image Format (BIF) File**: The BIF file specifies how the Zynq&reg;-7000 SoC boot file (BOOT.BIN) is constructed. The boot file contains the FSBL and the executable application ELF file. It can also contain a bitstream as well as additional program and data files.
 
 >:pushpin: **NOTE**
->For more information on creating a boot image, see Zynq UltraScale+ MPSoC Software Developer Guide ([UG1137](https://www.xilinx.com/support/documentation/user_guides/ug1137-zynq-ultrascale-mpsoc-swdev.pdf)).
+>For more information on creating a boot image, see Zynq-7000 SoC Software Developers Guide ([UG821](https://www.xilinx.com/support/documentation/user_guides/ug821-zynq-7000-swdev.pdf)).
 
 <details>
-<summary><big><strong>Step 1: Launching the SDx&trade; IDE</strong></big></summary>
+<summary><big><strong>Step 1: Launching the SDx&trade; IDE and Creating an Application Project</strong></big></summary>
 
 
 #### On a Linux host machine:
@@ -40,158 +40,325 @@ At the shell prompt, type the following commands:
    1. `source <Xilinx_Install_Directory>/SDx/<Version>/settings64.{sh,csh}`
    2. `sdx`
     
-The first command sets the environment variables before launching the SDx IDE, and the second command launches the tool. 
+The first command sets the environment variables before launching the SDx IDE and the second command launches the SDX IDE. 
 
 #### On a Windows host machine:
 
 For a Windows host machine, use one of the following methods to launch Vivado&reg;
 
-- Click the Vivado desktop icon
+   - Click the Vivado desktop icon
 
-- From the Start menu, select Xilinx Design Tools \> Vivado 2018.2 \> Vivado 2018.2
+   - From the Start menu, select Xilinx Design Tools \> Vivado 2018.2 \> Vivado 2018.2
 
-- From a Command prompt window, type the following commands:
+   - From a Command prompt window, type the following commands:
    
-1. `<Xilinx_Install_Directory>/SDx/<Version>/settings64.bat`
-2. `sdx`
+      1. `<Xilinx_Install_Directory>/SDx/<Version>/settings64.bat`
+      2. `sdx`
     
-    The first command sets the environment variables before launching the SDx IDE, and the second command launches the tool. 
+     The first command sets the environment variables before launching the SDx IDE and the second command launches the SDX IDE. 
 
-After the SDx IDE opens, you will be prompted to specify an SDx workspace. The SDx workspace will contain the platform and application projects you develop in the SDx tool. You can change the workspace when creating new platforms or application projects. 
+After the SDx IDE opens, you will be prompted to set a directory location for an SDx workspace. The SDx workspace will contain the platform and application projects we will develop.
 
-1. For this lab enter **/tmp/sdx_workspace** for the Workspace as shown in the figure below.
+1. For this lab enter **/tmp/sdx\_workspace** for the Workspace as shown in the figure below.
 
    ![](./images/image46.png)
 
 1. Click **OK**.
 
-1. In the SDx IDE Welcome screen, select **Create Platform Project**.
+1. In the SDx IDE Welcome screen, select **Create SDx Project**.
 
-   As an alternative, the SDx IDE menu selection **File \> New \> SDx Platform Project** can be used.
+   As an alternative, the SDx IDE menu selection **File \> New \> SDx Project** can be used.
 
    ![](./images/image47.png)
 
-   In this lab you will create the software components necessary for the SDSoC platform, and in the next lab you will combine the hardware and software components in a Platform project to define the SDSoC platform.
+1. Select **Application** on the Project Type dialog.
+
+   ![](./images/image48.png)
+
+   We will first create the software application components necessary for the SDSoC platform and then in a later lab we will create a Platform project to utilize this software.
+
+1. Click **Next**.
 
 </details>
 
 <details>
-<summary><big><strong>Step 2: Creating a New Platform Project</strong></big></summary>
+<summary><big><strong>Step 2: Creating an FSBL Application</strong></big></summary>
 
 
-1. In the New Platform Project dialog, type **zcu102_board** as the Project name.
+1. In the Create a New SDx Project dialog, type **fsbl** as the Project name.
 
     ![](./images/image49.png)
 
-2. Click **Next**.
+1. Click **Next**.
 
-3. On the Platform dialog, select the **Create from hardware specification (DSA)** option.
+1. On the Platform dialog, select **Hardware specification (DSA/HDF)**.
 
     ![](./images/image50.png)
 
-4. Click **Next**.
+1. Click **Add New DSA/HDF…**.
 
-5. Click the **Browse** button to add a **DSA file**.
-
-6. Navigate to the **zcu102_board.dsa** file written in Lab 1. 
-
-    **Note:** It should be located at /tmp/zcu102_board/zcu102_board.dsa.
-
-    The SDx tool will read the selected DSA file and populate the Platform Project dialog box with available software specifications, as shown in the following figure.  
+1. In the Add New DSA/HDF dialog, navigate to the HDF exported in Lab 1.
 
     ![](./images/image51.png)
 
-7. In the Software Specification select:
+1. Select **/tmp/zynq7\_board/zynq7\_board.sdk/zynq7\_board\_wrapper.hdf**.
 
-    - Operating system: **standalone**
-    - Processor: **psu_cortex53_0**
+1. Click **OK**.
 
-     
+   A new platform name is added to the Platform selection dialog choices
 
-8. Click **Finish**.
+1. Select the **zynq7\_board\_wrapper** of type HDF.
 
-</details>
+1. Click **Next** to read in this hardware specification file.
 
-<details>
-<summary><big><strong>Step 3: Defining the System Configuration and Generating the Platform</strong></big></summary>
+   ![](./images/image52.png)
 
-The platform project is created, and the **Platform Configuration Settings** opens in the Editor area of the SDx IDE as shown in the figure below. The SDx tool automatically creates a system configuration, called **sysconfig1**, and processor domain with a name based on the operating system and processor you selected. 
+1. In the System configuration dialog, retain the following default settings and click **Next**.
+
+   - OS Platform: **standalone**
+
+   - Processor: **ps7\_cortexa9\_0**
+
+   - Language: **C**
 
    ![](./images/image53.png)
 
-At this point, you will edit the platform project to add new configurations and domains.
+1. In the Templates dialog, select **Zynq FSBL** and click **Finish**.
 
-1. Select the top-level platform project, **zcu102_board**, in the Platform Configuration Settings tree view. You can edit the description for the platform. The fields of the platform project are edited by selecting the Edit command (pencil icon). 
+    ![](./images/image54.png)
 
-2. You can browse for sample application files to add to the ./samples folder of the platform. These files are optional, and the folder is not created unless you populate it. 
+   A Zynq-7000 SoC FSBL application is created as seen in the SDx IDE shown below.
 
-3. Enable **Generate prebuilt data** to populate the prebuilt folder for the platform. You can also select **Use existing prebuilt data** to specify prebuilt data from another platform, for instance. 
+    ![](./images/image55.png)
 
-    Providing a platform with prebuilt data containing software files with port interface specifications and a bitstream allows platform users to quickly compile and run software applications that do not invoke hardware accelerated functions.
+8. In the **Assistant** view, expand **fsbl [Application]**. The **Assistant** view appears in the bottom left corner below the **Project Explorer** view in the SDx IDE.
 
-   ![](./images/image53a.png)
+   ![](./images/image56.png)
 
-1. Select the **System configuration:sysconfig1** in the tree view, as displayed in the image above. You can enter a description for the system configuration by selecting the **Edit** command (pencil icon). 
+<a name="buildfsbl"></a>
+  
+9. Right-click on **Debug** and select **Build**.
 
-2. You can add a **Readme** file for the system configuration if you have one. 
+   The SDx Console window shows the FSBL compilation steps and the size of the resulting **fsbl.elf** executable software file.
 
-3. For this lab, enable the **Generate software components** radio button to have the SDx IDE automatically generate the files required for the current system configuration of the platform.  Alternativley you can enable **Use pre-built software components** to specify the required files.
+    ![](./images/image57.png)
+</details>
+<details>
+    <summary><big><strong>Step 3: Creating a “Hello World” Software Application with an updated Linker Script</strong></big></summary>
 
-   ![](./images/image53b.png)
 
-4. Select the **standalone on psu_cortexa53_0** domain in the tree view, as displayed in the image above. This view is where you would specify the
-board support package, the application linker script, and included libraries. You will not make any changes to the selections on this page. Just examine the fields, and refer to the *SDSoC Environment Platform Development Guide* ([UG1146](https://www.xilinx.com/support/documentation/user_guides/ug1146-sdsoc-platform-development.pdf)) for more information. 
+The “Hello World” application serves as a baseline of basic hardware and software functionality to observe that our design and board are functional prior to creating an SDSoC platform and any hardware accelerated functions. The Zynq-family boot process consists of a first stage bootloader that loads either the application software, in this case our hello\_world code, or a second stage bootloader such as U-Boot. Next, the FSBL configures the PL with a bitstream and then loads the application code into memory as defined by the application’s linker script. Program control is then passed to the application code.
 
-You have just completed the first system configuration that was automatically defined from your choices when you set up the SDSoC platform project. However, in this tutorial, you will also be defining a second system configuration for the Linux operating system. This way, your custom platform can be used in standalone applications, or in Linux based applications. 
+1. Select **File > New > SDx Project** on the SDx IDE menubar to create a new application.
 
-1. In the Project Editor, select the Add command (green '+' icon) to add a new **System Configuration**. 
+2. Select **Application** on the Project Type dialog.
 
-   ![](./images/LinuxConfig.png)
+3. Type **hello_world** in the Project name field in the Create a New SDx Project dialog and click **Next**.
 
-    This opens the **New System Configuration** dialog box, as shown above, letting you specify the Name, Display Name, and Description of the configuration. 
+    ![](./images/image58.png)
+
+4. In the Platform dialog, click Platform and select the `zynq7_board_wrapper_1[custom]` platform.
+
+
+   ![](./images/image59.png)
+
+5. Click **Next**.
+
+6. On the System configuration dialog, retain the following default settings and click **Next**.
+
+   - System configuration: **systemconfig**
+
+   - Runtime: **C/C++**
+
+   - Domain: **standalone\_domain**
+
+   - CPU: **ps7_cortexa9_0**
+
+   - OS: **standalone**
+
+   - Output type: **Executable (elf)**
+
+   - Language: **C**
+
+   ![](./images/image60.png)
+
+7. Select the **Hello World** application template in the Templates dialog box.
+
+   ![](./images/image61.png)
+
+8. Click **Finish**.
+   An SDK application project is be created.
+
+9. In the Assistant view, right-click hello_world [Application] and select **Generate Linker Script**.
+
+    ![](./images/image62.png)
+
+8. On the Generate linker script dialog, go to the **Basic** tab on the right and change the Heap and Stack sizes. The default values are too small for a typical SDx application that uses the heap for input and output data buffers.
+
+   >:pushpin: **NOTE:**
+   >Commas and other formatting is not accepted when entering values into the Generate linker script dialog.
+
+   1. Set Heap Size to **805306368**.
+      This is 768 MB.
+
+   1. Set Stack Size to **262144**.
+      This is 256 KB.
+
+    ![](./images/image63.png)
+
+9. Click **Generate**.
+
+10. Click **Yes** to overwrite existing linker script.
+
+9.  In the Assistant view, expand `hello_world [Application]`
+
+    ![](./images/image64.png)
+
+10. Right-click **Debug** and select **Build**.
+
+The SDx Console window shows the hello\_world compilation steps and the size of the resulting **hello\_world.elf** executable software file.
+
+![](./images/image65.png)
+</details>
+
+  <details>
+    <summary><big><strong>Step 4: Generating the Boot Image</strong></big></summary>
+
+We now have a set of hardware and software components that we can use to boot a Zynq-7000 SoC system. The SDx IDE provides the ability to create the boot image and its associated boot image file (BIF) that defines the boot image components. The order of partitions listed in the BIF is important. The generated **BOOT.bin** file located in the **hello_world/_sdx/bootimage** directory can be placed onto a FAT32 formatted SD card and used to boot the ZC702 with the “Hello World” text string output to the UART and the PL configured with a bitstream.
+
+1.  In the Assistant view, right-click `hello_world [Application]`and select **Create Boot Image**.
+
+    ![](./images/image66.png)
+
+2.  On the Create Boot Image dialog box accept the following defaults.
+
+    >:pushpin: **NOTE**
+    > Before clicking the Create Image button, make sure that the Boot image partitions are in the order shown below. You may need to select the bitstream partition and click the Up button in order to match the order shown below.
+
+    1. Select the **Zynq** architecture.
+
+    2. Select **Create new BIF file**.
+
+    3. Provide the Output BIF file path. For example, ``/tmp/sdx_workspace/hello_world/_sdx/bootimage/hello_world.bif``
+
+    4. Provide the Output path. For example, ``/tmp/sdx_workspace/hello_world/_sdx/bootimage/BOOT.bin``
+
+    5. Add boot image partitions in the following sequence:
+
+       1. `/tmp/sdx_workspace/zynq7_board_wrapper_1/export/zynq7_board_wrapper_1/sw/systemconfig/boot/fsbl.elf`
+
+       2. `/tmp/sdx_workspace/_sdx/bitstream/zynq7_board_wrapper.bit`
+
+       3. `/tmp/sdx_workspace/hello_world/Debug/hello_world.elf`
+
+      ![](./images/image67.png)
+
+      >:pushpin:**NOTE:**
+      >If an fsbl.elf is not present by default in the boot image partitions list above, you can use the FSBL that was built in [Step 2](#buildfsbl)  (/tmp/sdx_workspace/fsbl/Debug/fsbl.elf) by adding it to the partition list. To replace a partition, select it and click **Delete**. Click **Add** and browse to new file for the partition list. Use the **Up**/**Down** buttons for setting order.
+      
+    6. Click **Create Image**.
     
-    **Note:** Generating the software components for the Linux Operating System requires the PetaLinux tool to be installed and accessible to the SDSoC development environment. PetaLinux provides a complete, reference Linux distribution that has been integrated and tested for Xilinx devices. Refer to the *PetaLinux Tools Documentation: Reference Guide* ([UG1144](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug1144-petalinux-tools-reference-guide.pdf)) for more information. After installing PetaLinux on your system, you must also set the **PetaLinux Install Location** in your SDSoC development environment, using the **Windows > Preferences** command, and selecting the  **Xilinx SDx > Platform Project** in the Preferences dialog box.
-    
-2. Enter the following:
+       The boot image and its associated boot image file (BIF) that defines the boot image components is created.
 
-- Name: LinuxConfig
-- Display Name: Linux Config
-- Description: Add a suitable description. 
+</details>
+<details>
+<summary><big><strong>Step 5: Booting the ZC702 with the generated Boot Image (BOOT.bin)</strong></big></summary>
 
-3. Click **OK** to add the new system configuration to the platform project. 
 
-4. In the Project Editor, select the Add command (green '+' icon) to add a new **Domain**.
+1. Copy the `BOOT.bin` file from `/tmp/sdx_workspace/hello_world/_sdx/bootimage/BOOT.bin` to the root directory of a FAT32 format SD card inserted on the host machine.
 
-   ![](./images/linux_domain.png)
+2. Safely eject or unmount the SD card.
 
-    This opens the **New Domain** dialog box, as shown above, letting you specify the Name, Display Name, and Description of the configuration. 
-    
-5. Enter the following:
+3. Power off the ZC702 (SW11) board.
 
-- Name: **linux_domain**
-- Display Name: **linux_domain**
-- OS: Select **linux** from the drop down menu. 
-- Processor: **psu_cortexta53**
-- Supported Runtimes: Select **C/C++**
-- Enable the **Generate software components** radio button
+4. Insert the SD card, with `BOOT.bin` at root directory, into ZC702 metallic SD card holder (J64).
 
-6. Click **OK** to add the new domain to your platform project. 
+5. Ensure that the ZC702 boot mode DIP switch (SW16) is set for SD card boot. The following is a list of the recommended DIP switch position settings:
 
-7. Select the **3: Generate Platform** command, under the Quick Links at the bottom of the page, to generate the platform files from the current project.
+   - 1 - Away from number 1 printed on switch.
 
-   ![](./images/quick_links_platform.png)
+   - 2 - Away from number 2 printed on switch.
 
-    The SDx tool compiles the ./sw folder to generate the required files for FSBL, linker script (lscript.ld), and the BIF file for each system configuration. In addition, prebuilt application files are generated to let you test the platform if specified. Finally, the hardware platform DSA file from Lab 1 is copied into the ./hw folder in the platform. The contents of the exported platform are shown in the following figure. 
+   - 3 - Towards the number 3 printed on switch.
 
-   ![](./images/exported_platform.png)
+   - 4 - Towards the number 4 printed on switch.
 
+   - 5 - Away from number 5 printed on switch.
+
+6.  Plug the mini-USB cable end into the ZC702 USB-UART connector (J17).
+
+7.  Plug the other end of the USB Host Type A connector into the USB port of the host machine.
+
+8.  Power-up the ZC702 (SW11) board.
+
+9.  On the host machine run a terminal program, such as TeraTerm, using the COM port associated with the Silicon Labs CP210x USB-to-UART device that is on the ZC702.
+
+    1. Ensure Silicon Labs CP210x VCP drivers are already loaded on the Host machine.
+
+    2. Connect to the COM port containing “Silicon Labs CP210x USB to UART Bridge” identifier.
+
+       The ZC702 needs board power applied to activate the COM port.
+
+    3. Serial port settings are 115200 baud, 8-N-1, no hardware flow control.
+
+10.  Once the terminal program is connected to the COM port, reboot using one of the following methods.
+
+     - Push the POR\_B pushbutton (SW1) or
+
+     - Power cycle (SW11) the ZC702
+
+11. After the ZC702 board is successfully configured with a bitstream, the DONE LED (DS3) turns green.
+
+    This usually takes up to 30 seconds.
+
+12. The text Hello World appears on the terminal window after a successful boot.
+
+    ![](./images/image68.png)
+
+</details>
+    <details>
+    <summary><big><strong>Step 6: Preparing a Staging Area for Platform Creation</strong></big></summary>
+
+
+We now have all the components necessary to create a standalone SDSoC platform that targets a ZC702. In preparation for providing input files to the SDx IDE’s platform creation dialogs we create a directory that serves as a staging area. The name or location of the directory is user selectable. We will create the staging area in our SDx workspace directory. Below is a description of the steps we perform to populate the staging area, followed by the Linux commands used to complete the described actions.
+
+1.  Change directory to the location of the SDx workspace.
+
+2.  Copy the DSA created in Lab 1 into the SDx workspace.
+
+3.  Create the boot directory in the SDx workspace.
+
+4.  Change directory to boot.
+
+5.  Copy the FSBL ELF file into the boot directory.
+
+6.  Copy the `hello_world` linker script into the boot directory.
+
+7.  Copy the `hello_world` BIF file into the boot directory.
+
+8.  Copy the `hello_world` BOOT.bin file into the boot directory.
+    ```
+    cd /tmp/sdx_workspace
+    cp /tmp/zynq7_board/zynq7_board.dsa .
+    mkdir boot
+    cd boot
+    cp /tmp/sdx_workspace/fsbl/Debug/fsbl.elf .
+    cp /tmp/sdx_workspace/hello_world/src/lscript.ld .
+    cp /tmp/sdx_workspace/hello_world/_sdx/bootimage/hello_world.bif .
+    cp /tmp/sdx_workspace/hello_world/_sdx/bootimage/BOOT.bin .
+    ```
+9.  Copy the `hello_world.bif` file to a file named **platform.bif**
+
+10. Edit the **platform.bif** file.
+
+    ![](./images/image69.png)
+
+An SDSoC boot image format file looks similar to a standard BIF file, with tokens specified in angle brackets (< >) rather than direct paths to boot files. The BIF tokens are replaced at SDSoC compile time with actual file names and generated content. This is done since the bitstream file for the PL region will be procedurally generated in the course of running the SDx tools and also because some of the elements listed in the BIF file do not have known file names at the time the BIF file is created.
 </details>
 
 ### Conclusion
 
-In completing Lab 2, you used the DSA file you created in the Vivado Design Suite in Lab 1 and brought it into a Platform Project in the SDx environment. Using the SDx IDE, you specified a Standalone system configuration and a Linux system configuration for your platform. With the details of the platform specified, you generated the actual platform files for use in SDSoC application projects. In Lab 3 you will use the platform you have created. 
-## Related information
- - <a href="Lab1-Creating-DSA-for-Zynq-MPSoC-Processor-Design.md">Lab1: Creating the DSA for a Zynq UltraScale+ MPSoC Processor Design</a>
- - <a href="Lab3-Creating-Custom-Platform-Using-the-SDx-IDE.md">Lab 3: Using Your Custom Platform</a>
+In completing Lab 2, you used the exported hardware design from the Vivado Design Suite in Lab 1 and brought it into the SDx environment. Using the SDx IDE, you created an FSBL software application and a hello\_world software application. The linker script for the hello\_world application was updated to reflect the resources needed for the SDx environment. These applications were then used to create a boot image (BOOT.bin). By writing the boot image to an SD card and using it to boot a ZC702 board, you validated the application on hardware. A staging area directory was then created and you moved the relevant files into the staging area in preparation for Lab 3.
+
 <hr/>
-<p align="center"><sup>Copyright&copy; 2019 Xilinx</sup></p>
+<p align="center"><sup>Copyright&copy; 2018 Xilinx</sup></p>
