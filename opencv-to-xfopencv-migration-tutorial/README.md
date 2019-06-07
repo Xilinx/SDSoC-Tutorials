@@ -1,3 +1,6 @@
+<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
 <!-- <div style="page-break-after: always;"></div> -->
 <!-- <div style="display: none;" media="print"> -->
 <table style="width:100%">

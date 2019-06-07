@@ -1,3 +1,6 @@
+<p align="right">
+<a>English</a> | <a href="/docs-jp/README.md">日本語</a>
+</p>
 <table style="width:100%">
   <tr>
 
